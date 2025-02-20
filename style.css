@@ -5,7 +5,40 @@
     font-family: "Montserrat", serif;
 }
 
+header{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 1rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5rem;
+}
+
+footer{
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    justify-content: center;
+
+    
+}
 .headerButtun{
     background-color: white;
     border: 0px;
+}
+.headerButtun:hover{
+    text-decoration-line:underline;
+}
+
+.image{
+    height: 4rem;
+    width: 4rem;
+    background-color: grey;
+    border-radius: 1rem;
 }
