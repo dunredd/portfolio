@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Bruno Tanguy</title>
+    <link rel="icon" href="Logo.svg" type="svg+xml">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: "Geologica", sans-serif;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+    @media (max-width: 50rem){
+        .content{
+            flex-wrap: wrap;
+            padding: 2rem;
+        }
+        h1{
+            padding-left: 2rem;
+        }
+
+    }
+
+    .homepage{
+        width: 100vh;
+        padding-top: 5vh;
+    }
+    .footerPage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3rem;
+            background-color: black;
+            gap: 2rem;
+        }
+
+        .white {
+            color: white;
+        }
+        .line {
+            display: flex;
+            gap: .4rem;
+            align-items: center;
+        }
+
+        .icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .textMenu:hover,
+        .textProjets:hover,
+        .textMeContacter:hover {
+            text-decoration: underline;
+        }
+
+        .btnMenu,
+        .btnProjets,
+        .btnMeContacter{
+            border: 0px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btnP {
+            font-weight: 500;
+            font-size: medium;
+        }
+    h1{
+        padding-bottom: 4rem;
+        font-size: 5vh;
+    }
+
+    .content{
+        display: flex;
+        gap: 1rem;
+    }
+    h2{
+        padding-bottom: 2rem;
+    }
+    .p{
+        padding-bottom: 1rem;
+    }
+    .pp{
+        width: 40vh;
+        height: 40vh;
+    }
+
+    .btnLinkContainer{
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .btnLink{
+        font-weight: 500;
+        background-color: black;
+        color: white;
+        border: 0px;
+        font-size: larger;
+    }
+    .btnLink:hover{
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <section class="homepage">
+        <header class="footerPage">
+            <button id="btnMenu2" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets2" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter2" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+            
+        </header>
+
+        <h1>Me contacter</h1>
+        <article class="content">
+            <img class="pp" src="pp.svg" alt="">
+            <div class="text">
+                <h2>Bruno Tanguy</h2>
+                <p class="p">J’étudie le design depuis 2 ans à l’Ecole de Design Nantes Atlantique dans la filière UX/UI Service. </p>
+
+                <p class="p">Ce que j’aime dans le design, c’est de pouvoir étudier et comprendre des problématiques complexes traitant autant de l’humain que du technique et d’y trouver des solutions. Les parties que je préfère dans un projet sont l’idéation et la création de prototypes et maquettes.</p>
+                    
+                <p class="p">J’adore m’informer sur des sujets variés pour comprendre mieux les outils, les tendances ou des concepts nouveaux (IA, cybersécurité, ordinateur quantiques, objets connectés, sociologie, développement web, jeux vidéos, Arts...)</p>
+            </div>
+        </article>
+        <article class="btnLinkContainer">
+            <a  class="btnLink" href="mailto:bruno.tanguy@icloud.com" id="btnEmail">Envoyer un e-mail</a>
+            <a class="btnLink" href="https://www.linkedin.com/in/bruno-tanguy-aa48602a8">LinkedIn</a>
+            <a class="btnLink" href="https://github.com/dunredd/">Github</a>
+            <p class="white">Codé par Bruno Tanguy</p>
+        </article>
+
+    </section>
+
+
+<script>
+            document.querySelector('#btnMenu2').addEventListener('click', () => {
+                window.location.href = 'index.html';
+        });
+
+        document.querySelector('#btnProjets2').addEventListener('click', () => {
+            window.location.href = 'index.html#projets';
+        });
+
+        document.querySelector('#btnMeContacter2').addEventListener('click', () => {
+            window.location.href = 'contact.html';
+        });
+</script>
+</body>
+</html>
