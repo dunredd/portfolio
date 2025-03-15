@@ -3,32 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Bruno Tanguy</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-    </style>
+    <title>Document</title>
 <style>
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Fira Code", monospace;
-}
-body{
-    background-color: #212121;
-    color: white;
-}
-p{
-    margin-top: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body{
+        font-family: "Geologica", sans-serif;
+        background-color: white;       
+    }
+    p{
+        font-weight: 500;
+        font-size: medium;
+    }
+
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+    }
+    .header_Left{
+        display: flex;
+        height: 2rem;
+        align-items: center;
+        gap: .5rem;
+    }
+    .logo{
+        width: 2rem;
+        height: 2rem;
+    }
+    .header_Right{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    .line{
+        display: flex;
+        gap: .4rem;
+        align-items: center;
+    }
+    .icon{
+        width: 1rem;
+        height: 1rem;
+    }
+    .textMenu:hover, .textProjets:hover, .textMeContacter:hover{
+        text-decoration: underline;
+    }
+    .btnMenu, .btnProjets, .btnMeContacter, .btnLogo{
+        border: 0px;
+        background-color: transparent;
+    }
+
+    .homepage{
+        display: flex;
+        justify-content: center;
+    }
+    .homepageBox{
+        width: min-content;
+        margin-top: 20vh;
+    }
+    .titleBox{
+        display: flex;
+        gap: 2rem;
+    }
+    .title{
+        font-size: 10vh;
+        font-weight: 800;
+    }
+    .subtitleBox{
+        display: flex;
+        justify-content: space-between;
+    }
+    .subtitle{
+        font-weight: 100;
+    }
+    
+
+    footer{
+        display: flex;
+        justify-content: center;
+        margin-top: 40vh;
+    }
+    .btnVoirLesProjets{
+        background-color: black;
+        color: white;
+        border: 0px;
+        padding: .6rem;
+        padding-left: 1.5rem;
+        padding-right:1.5rem;
+        border-radius: 2rem;
+        display: flex;
+        gap: .4rem;
+    }
+
+
+
 
 </style>
 </head>
 <body>
-    <p>The portfolio is being coded...</p>
+    <header>
+        <button class="header_Left btnLogo">
+            <img class="logo" src="Logo.svg" alt="B">
+            <p>Bruno Tanguy</p>
+        </button>
+        <section class="header_Right">
+            <button class="btnMenu line">
+                <img class="icon" src="Home.svg" alt="">
+                <p class="textMenu">Menu</p>
+            </button>
+            <button class="btnProjets line">
+                <img class="icon" src="Projets.svg" alt="">
+                <p class="textProjets">Projets</p>
+            </button>
+            <button class="btnMeContacter line">
+                <img class="icon" src="MeContacter.svg" alt="">
+                <p class="textMeContacter">Me contacter</p>
+            </button>
+        </section>
+    </header>
 
+    <main class="homepage">
+        <section class="homepageBox">
+            <article class="titleBox">
+                <h1 class="title">BRUNO</h1>
+                <h1 class="title">TANGUY</h1>
+            </article>
+
+            <article class="subtitleBox">
+                <h2 class="subtitle">Portfolio 24/25</h2>
+                <h2 class="subtitle">UX/UI design</h2>
+                <h2 class="subtitle">Etudiant</h2>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <button class="btnVoirLesProjets">
+            <img src="VoirLesProjets.svg" alt="">
+            <p>Voir les Projets</p>
+            <img src="VoirLesProjets.svg" alt="">
+        </button>
+
+    </footer>
+
+
+
+<script>
+
+
+
+</script>
 </body>
 </html>
