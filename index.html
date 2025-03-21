@@ -1,317 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Bruno Tanguy</title>
+    <title>Contact Bruno Tanguy</title>
     <link rel="icon" href="Logo.svg" type="svg+xml">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
 
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: "Geologica", sans-serif;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (max-width: 70rem){
+
+        h2{
+            padding-top: 2rem;
         }
-
-        body {
-            font-family: "Geologica", sans-serif;
-            background-color: white;
-        }
-
-        p {
-            font-weight: 500;
-            font-size: medium;
-        }
-
-        @media (max-width: 50rem) {
-            .titleBox {
-                flex-wrap: wrap;
-                gap: 0rem;
-            }
-
-            .hompage {
-                margin-top: 10vh;
-            }
-
-            .footer {
-                margin-top: 20vh;
-            }
-            .title{
-                font-size: 10vh;
-            }
-
-            .textProjet{
-                display: none;
-            }
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem;
-        }
-
-        .header_Left {
-            display: flex;
-            height: 2rem;
-            align-items: center;
-            gap: .5rem;
-        }
-
-        .logo {
-            width: 2rem;
-            height: 2rem;
-        }
-
-        .header_Right {
-            display: flex;
-            flex-direction: column;
-            gap: .5rem;
-        }
-
-        .line {
-            display: flex;
-            gap: .4rem;
-            align-items: center;
-        }
-
-        .icon {
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .textMenu:hover,
-        .textProjets:hover,
-        .textMeContacter:hover {
-            text-decoration: underline;
-        }
-
-        .btnMenu,
-        .btnProjets,
-        .btnMeContacter,
-        .btnLogo {
-            border: 0px;
-            background-color: transparent;
-            color:black;
-        }
-
-        .homepage {
-            display: flex;
-            justify-content: center;
-        }
-
-        .homepageBox {
-            width: min-content;
-            margin-top: 20vh;
-        }
-
-        .titleBox {
-            display: flex;
+        .h2ContainerBtn{
+            flex-wrap: wrap;
             gap: 2rem;
         }
+    }
 
-        .title {
-            font-size: 10vh;
-            font-weight: 800;
-        }
+    main{
+        width: 80%;
+        margin: 2rem;
+    }
+    .header, .footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+                gap: 2rem;
+            }
 
-        .subtitleBox {
-            display: flex;
-            justify-content: space-between;
-        }
+            .white {
+                color: white;
+            }
+            .line {
+                display: flex;
+                gap: .4rem;
+                align-items: center;
+            }
 
-        .subtitle {
-            font-weight: 100;
-        }
+            .icon {
+                width: 1rem;
+                height: 1rem;
+            }
 
-        .footerHomepage {
-            display: flex;
-            justify-content: center;
-            margin-top: 40vh;
-        }
+            .textMenu:hover,
+            .textProjets:hover,
+            .textMeContacter:hover,
+            .textVoir:hover {
+                text-decoration: underline;
+            }
 
-        .btnVoirLesProjets {
-            background-color: black;
-            color: white;
-            border: 0px;
-            padding: .6rem;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+            .btnMenu,
+            .btnProjets,
+            .btnMeContacter, 
+            .btnVoir{
+                border: 0px;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btnP {
+                font-weight: 500;
+                font-size: medium;
+            }
+
+    .title{
+        width: 100%;
+
+    }
+    h1{
+        font-size: 5rem;
+    }
+    h2{
+        font-weight: 100;
+
+    }
+    .h2Container{
+        display: flex;
+        gap:2rem;
+
+    }
+    .spline{
+        width: 100%;
+
+    }
+    .h2ContainerBtn{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .projetContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .projetsBox{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2%;
+    }
+    .titleProjetBox{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+        .projet{
+            border: solid 0px black;
             border-radius: 2rem;
-            display: flex;
-            gap: .4rem;
+            background-color: rgb(55, 55, 55);
+            height: 10rem;
+            width: 49%;
+            margin-top: 2%;
+
+        }
+        .projet:hover{
+            border: white 2px solid;
         }
 
-        .page {
-            margin-top: 1rem;
-            color: white;
-            background-color: black;
-            height: 95vh;
+        .footer{
+            margin-top: 2rem;
         }
 
-        .projetsContainer {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
+        .img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
         }
 
-        .titleProjetsBox {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            gap: 5rem;
-            margin-top: 4rem;
-        }
 
-        .titleProjets {
-            font-size: 2rem;
-        }
 
-        .projetsBox {
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .projet {
-            background-color: rgb(46, 46, 46);
-            height: 50vh;
-            width: 15vh;
-            border-radius: 1rem;
-            transition: height 1s ease, width 1s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .projet:hover {
-            height: 60vh;
-            width: 25vh;
-        }
-
-        .footerPage {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 3rem;
-            background-color: black;
-            gap: 2rem;
-        }
-
-        .white {
-            color: white;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <button class="header_Left btnLogo">
-            <img class="logo" src="Logo.svg" alt="B">
-            <p>Bruno Tanguy</p>
-        </button>
-        <section class="header_Right">
+    <main class="mainTitle">
+        <header class="header">
             <button id="btnMenu" class="btnMenu line">
-                <img class="icon" src="Home.svg" alt="">
-                <p class="textMenu">Menu</p>
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
             </button>
-            <button id="btnProjets" class="btnProjets line">
-                <img class="icon" src="Projets.svg" alt="">
-                <p class="textProjets">Projets</p>
+            <button id="btnProjets" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
             </button>
             <button id="btnMeContacter" class="btnMeContacter line">
-                <img class="icon" src="MeContacter.svg" alt="">
-                <p class="textMeContacter">Me contacter</p>
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-        </section>
-    </header>
+        </header>
+        <section class="title3D">
+            <section class="spline">
+                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/0phjIXQcgvsVQ0ms/scene.splinecode"></spline-viewer>
+            </section>
+            <section class="title">
+                <h1>Bruno Tanguy</h1>
+                <article class="h2ContainerBtn">
+                    <article class="h2Container">
+                        <h2>Portfolio 24/25</h2>
+                        <h2>UX/UI Design</h2>
+                        <h2>Etudiant</h2>
+                        
+                    </article>
+                    <button id="btnVoir" class="btnVoir line">
+                        <img class="icon" src="VoirLesProjets.svg" alt="">
+                        <p class="textVoir white btnP">Voir les Projets</p>
+                        <img class="icon" src="VoirLesProjets.svg" alt="">
+                    </button>
 
-    <main class="homepage">
-        <section class="homepageBox">
-            <article class="titleBox">
-                <h1 class="title">BRUNO</h1>
-                <h1 class="title">TANGUY</h1>
-            </article>
+                </article>
 
-            <article class="subtitleBox">
-                <h2 class="subtitle">Portfolio 24/25</h2>
-                <h2 class="subtitle">UX/UI design</h2>
-                <h2 class="subtitle">Etudiant</h2>
-            </article>
-        </section>
+            </section>
+        </section >
+
     </main>
-
-    <footer class="footerHomepage">
-        <button id="btnVoirLesProjets" class="btnVoirLesProjets">
-            <img src="VoirLesProjets.svg" alt="">
-            <p>Voir les Projets</p>
-            <img src="VoirLesProjets.svg" alt="">
-        </button>
-    </footer>
-
-    <main class="page">
-        <section class="projetsContainer" id="projets">
-            <article class="titleProjetsBox">
-                <h1 class="titleProjets">Mes projets</h1>
+    <main class="mainProjet">
+        <section class="projetContainer" id="projet">
+            <article class="titleProjetBox">
+                <h1 class="titleProjet">Mes projets</h1>
                 <p class="textProjet">Nom du projets 2025</p>
             </article>
             <article class="projetsBox">
-                <div class="projet">Coming soon...</div>
-                <div class="projet">Coming soon...</div>
-                <div class="projet">Coming soon...</div>
-                <div class="projet">Coming soon...</div>
-                <div class="projet">Coming soon...</div>
+                <button class="projet" id="geocaching">
+                    <img class="img" src="GeocachingMockupPresentation.png" alt="">
+                </button>
+                <button class="projet">Coming soon...</button>
+                <button class="projet">Coming soon...</button>
+                <button class="projet">Coming soon...</button>
+                <button class="projet">Coming soon...</button>
 
             </article>
         </section>
+        <footer class="footer">
+            <button id="btnMenu2" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets2" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter2" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+        </footer>
     </main>
 
-    <footer class="footerPage">
-        <button id="btnMenu2" class="btnMenu line">
-            <img class="icon" src="HomeWhite.svg" alt="">
-            <p class="textMenu white">Menu</p>
-        </button>
-        <button id="btnProjets2" class="btnProjets line ">
-            <img class="icon" src="ProjetsWhite.svg" alt="">
-            <p class="textProjets white">Projets</p>
-        </button>
-        <button id="btnMeContacter2" class="btnMeContacter line">
-            <img class="icon" src="MeContacterWhite.svg" alt="">
-            <p class="textMeContacter white">Me contacter</p>
-        </button>
-        <p class="white">Codé par Bruno Tanguy</p>
-    </footer>
+<script>
+    
 
-    <script>
-        document.querySelector('#btnMenu').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelector('#btnMenu').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelector('#btnProjets').addEventListener('click', () => {
+            document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
         });
 
-        document.querySelector('#btnProjets').addEventListener('click', () => {
-            document.querySelector('#projets').scrollIntoView({ behavior: 'smooth' });
-        });
+    document.querySelector('#btnVoir').addEventListener('click', () => {
+        document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
+    });
 
-        document.querySelector('#btnMeContacter').addEventListener('click', () => {
-            window.location.href = 'contact.html';
-        });
+    document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
 
-        document.querySelector('#btnVoirLesProjets').addEventListener('click', () => {
-            document.querySelector('#projets').scrollIntoView({ behavior: 'smooth' });
-        });
 
-        document.querySelector('#btnMenu2').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+    document.querySelector('#btnMenu2').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-        document.querySelector('#btnProjets2').addEventListener('click', () => {
-            document.querySelector('#projets').scrollIntoView({ behavior: 'smooth' });
-        });
+    document.querySelector('#btnProjets2').addEventListener('click', () => {
+        document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
+    });
 
-        document.querySelector('#btnMeContacter2').addEventListener('click', () => {
-            window.location.href = 'contact.html';
-        });
-    </script>
+    document.querySelector('#btnMeContacter2').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+
+    document.querySelector('#geocaching').addEventListener('click', () => {
+        window.location.href = 'geocaching.html';
+    });
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,22 +19,22 @@
         background-color: black;
         color: white;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
-    @media (max-width: 50rem){
+    @media (max-width: 70rem){
         .content{
             flex-wrap: wrap;
-            padding: 2rem;
+            padding: 0rem;
         }
-        h1{
-            padding-left: 2rem;
+        .btnLinkContainer{
+            flex-direction: column;
         }
-
     }
 
     .homepage{
-        width: 100vh;
-        padding-top: 5vh;
+        width: 80%;
+        margin: 2rem;
     }
     .footerPage {
             display: flex;
@@ -95,8 +95,8 @@
         padding-bottom: 1rem;
     }
     .pp{
-        width: 40vh;
-        height: 40vh;
+        width: 100%;
+        height: 100%;
     }
 
     .btnLinkContainer{
@@ -104,6 +104,8 @@
         display: flex;
         justify-content: center;
         gap: 2rem;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
     }
     .btnLink{
         font-weight: 500;
@@ -118,7 +120,7 @@
 </style>
 </head>
 <body>
-    <section class="homepage">
+    <main class="homepage">
         <header class="footerPage">
             <button id="btnMenu2" class="btnMenu line">
                 <img class="icon" src="HomeWhite.svg" alt="">
@@ -132,29 +134,28 @@
                 <img class="icon" src="MeContacterWhite.svg" alt="">
                 <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-            
         </header>
 
         <h1>Me contacter</h1>
-        <article class="content">
+        <section class="content">
             <img class="pp" src="pp.svg" alt="">
-            <div class="text">
+            <article class="text">
                 <h2>Bruno Tanguy</h2>
                 <p class="p">J’étudie le design depuis 2 ans à l’Ecole de Design Nantes Atlantique dans la filière UX/UI Service. </p>
 
                 <p class="p">Ce que j’aime dans le design, c’est de pouvoir étudier et comprendre des problématiques complexes traitant autant de l’humain que du technique et d’y trouver des solutions. Les parties que je préfère dans un projet sont l’idéation et la création de prototypes et maquettes.</p>
                     
                 <p class="p">J’adore m’informer sur des sujets variés pour comprendre mieux les outils, les tendances ou des concepts nouveaux (IA, cybersécurité, ordinateur quantiques, objets connectés, sociologie, développement web, jeux vidéos, Arts...)</p>
-            </div>
-        </article>
-        <article class="btnLinkContainer">
+            </article>
+        </section>
+        <section class="btnLinkContainer">
             <a  class="btnLink" href="mailto:bruno.tanguy@icloud.com" id="btnEmail">Envoyer un e-mail</a>
             <a class="btnLink" href="https://www.linkedin.com/in/bruno-tanguy-aa48602a8">LinkedIn</a>
             <a class="btnLink" href="https://github.com/dunredd/">Github</a>
             <p class="white">Codé par Bruno Tanguy</p>
-        </article>
+        </section>
 
-    </section>
+    </main>
 
 
 <script>
@@ -163,7 +164,8 @@
         });
 
         document.querySelector('#btnProjets2').addEventListener('click', () => {
-            window.location.href = 'index.html#projets';
+            window.location.href = 'index.html';
+            document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
         });
 
         document.querySelector('#btnMeContacter2').addEventListener('click', () => {
