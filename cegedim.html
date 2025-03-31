@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Tanguy</title>
+    <link rel="icon" href="Logo.svg" type="svg+xml">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: "Geologica", sans-serif;
+        font-weight: 100;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main{
+        width: 60%;
+        margin: 2rem;
+    }
+
+
+
+
+    .footer, header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+                gap: 2rem;
+            }
+
+            .white {
+                color: white;
+            }
+            .line {
+                display: flex;
+                gap: .4rem;
+                align-items: center;
+            }
+
+            .icon {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .textMenu:hover,
+            .textProjets:hover,
+            .textMeContacter:hover {
+                text-decoration: underline;
+            }
+
+            .btnMenu,
+            .btnProjets,
+            .btnMeContacter{
+                border: 0px;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btnP {
+                font-weight: 500;
+                font-size: medium;
+            }
+
+
+
+    h1{
+        padding-top: 3rem;
+        font-size: 3rem;
+    }
+    .titre{
+        padding-bottom: 2rem;
+    }
+    h2{
+        padding-top: 4rem;
+        font-size: 2rem;
+    }
+    p:not(.btnP){
+        padding-top: 1rem;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .paddingT{
+        padding-top: 1rem;
+    }
+    .paddingB{
+        padding-bottom: 1rem;
+    }
+    @media (max-width: 70rem){
+        main{
+        width: 80%;
+        }
+        h1{
+        padding-top: 4rem;
+        font-size: 3rem;
+        padding-bottom: 2rem;
+    }
+    }
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <button id="btnMenu" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+            
+        </header>
+        <h1 class="titre">Workshop IA Cegedim</h1>
+        <img src="CegedimAxe2Ecran3Mockup.png" alt="">
+        
+        <h2>Contexte</h2>
+        <p>Pour ce Workshop, nous avons eu l'opportunité de travailler sur un projet d'innovation pour l'entreprise Cegedim aidé par l'agence de design Upgrade. Cegedim vend des logiciels à destination d'entreprises privés ou publiques. Cegedim nous a demandé de fournir 3 propositions à la fin de la semaine pour intégrer l'IA dans ses logiciels de pharmacie, Upharma. Durant la semaine, nous avons appliqué une méthode proche du Design Sprint, une méthodologie efficace pour un projet de recherche. </p>
+        
+        <h2 class="paddingB">Problématique</h2>
+        <img src="CegedimProblematique.png" alt="Comment l'IA peut aider les utilisateurs des services CEGEDIM dans leurs prises de décision ou actions ?">
+        
+        <h2>Veilles et recherches</h2>
+        <p><b>IA de prédiction:</b> Anticipation des besoins des utilisateurs et des clients via l'analyse des données.</p>
+        <p><b>IA de génération:</b> Production de contenus et analyses pertinentes pour les utilisateurs.</p>
+        <p><b>IA d’automatisation:</b> Réduction des tâches répétitives et amélioration de l'efficacité opérationnelle</p>
+        <p>Les possiblités d'intéractions sont restreintes mais néanmoins adapté à beaucoup d'usages. On trouve principalement le <b>prompt</b>, <b>le bouton</b> (permet de créer un rendu prédefini), le questionnaire (permet de ranger directement les informations dans un cadre plus restreint) et <b>les notifications et les rappels</b> (permet d'afficher des reflexions d'une IA fonctionnant en arrière plan).</p>
+        <p>L'IA peut ensuite prédire de évènements en s'appuyant sur des données en direct et passées disponibles dans des historiques. Elle peut également adapter son intéraction à l'utilisateur et son contexte. Elle peut également faciliter la communication entre les différents employés, ou externes de l'entreprise. Elle peut s'améliorer et s'adapter indépendamment de l'entreprise propriétaire en recevant des feedbacks. Elle peut également générer du contenu et expliquer ses raisonnements pour que l'humain détecte les possibles incohérences.</p>
+        
+        <h2>Epicerie Fine</h2>
+        <p>Afin de répondre au moins à la problématique, nous avons eu la possibilités de travailler sur un type de commerce avec lequel nous étions plus familier. Nous avons donc choisi l'Epicerie Fine, un domaine à la même échelle que la pharmacie, et régit par les mêmes contraintes.</p>
+        
+        <h2 class="paddingB">Nos Personas</h2>
+        <img src="CegedimPersona1.png" alt="">
+        <img src="CegedimPersona2.png" alt="">
+        <img src="CegedimPersona3.png" alt="">
+        
+        <h2 class="paddingB">Analyse des intéractions</h2>
+        <img src="CegedimInteractions.png" alt="">
+        <p><b>Gestion RH: </b> Recrutement et gestion administrative, planification des horaires et gestion des congés, suivi des performances et formations, gestion des obligations légales et sociales et communication interne et résolution des conflits</p>
+        <p><b>Gestion de la facturation: </b>Vérification et validation des factures, émission et suivi des paiements, gestion des relances et impayés et suivi fiscal et archivage comptable</p>
+        <p><b>Gestion des stocks: </b>Contrôle des livraisons et des stocks, identification des besoins en réapprovisionnement, gestion des pertes et des invendus et optimisation de l’espace de stockage</p>  
+        <p><b>Flux d’achats et ventes: </b>Négociation avec les fournisseurs, gestion des commandes clients et fournisseurs et suivi des livraisons et service après-vente</p>
+        
+        <h2>Apports de l'IA</h2>
+        <p><b>Gestion RH: </b>Analyse des CV, génération automatique des plannings, gestion des fiches de paie, prévision des besoins en recrutement, analyse du turnover, création de descriptions de poste et rédaction de mails automatisés.</p>
+        <p><b>Gestion de la facturation: </b>Validation des factures via OCR, relances automatiques des paiements, prédiction des retards de paiement, analyse des écarts factures-commandes et rapports financiers automatiques.</p>
+        <p><b>Gestion des stocks: </b>Mise à jour automatique des niveaux de stock, prédiction des besoins en stock, identification des invendus, Suggestions de fournisseurs et ajustement des commandes.</p>
+        <p><b>Flux d’achats et ventes: </b>Traitement des commandes clients, gestion automatique des stocks, prédiction des périodes de forte demande, ajustement des prix et création de campagnes marketing.</p>
+        
+        <h2>Axe 1 - Optimisation de la gestion des commandes</h2>
+        <p><b>Problème: </b>Gérer les stocks en évitant les pertes de produits périssables.</p>
+        <p><b>Solution de l'IA: </b>Détection des problème lié au stock, proposition de réductions adaptées à la criticité du stock et proposition de solution avec justification.</p>
+        <p><b>Intéractions IA / Utilisateur: </b>Tableau de bord avec score de criticité des produits et notification pour alerter sur les produits à risque.</p>
+        
+        <h2>Axe 2 - Dashboard personnalisé par l'IA</h2>
+        <p><b>Problème: </b>Chaque employé a des besoins différents (gérant, responsable de rayon, saisonnier). La création de composants personnalisés est manuel et doit passer par CEGEDIM</p>
+        <p><b>Solution de l'IA: </b>L’IA propose les éléments les plus pertinents selon son profil, adaptation la présentation des données et leur agencement et correction du résultat de l’IA dans le chat</p>
+        <p><b>Intéractions IA / Utilisateur: </b>Adaptation dynamique de l’interface et chat avec l’IA</p>
+        
+        <h2>Axe 3 - Identification des produits à risque d'invendus et promotions ciblées</h2>
+        <p><b>Problème: </b>Gérer les stocks en évitant les pertes de produits périssables.</p>
+        <p><b>Solution de l'IA: </b>Détection des problème lié au stock, proposition de réductions adaptées à la criticité du stock et proposition de solution avec justification.</p>
+        <p><b>Intéractions IA / Utilisateur: </b>Tableau de bord avec score de criticité des produits et notification pour alerter sur les produits à risque.</p>
+        
+        
+        <footer class="footer">
+            <button id="btnMenu2" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets2" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter2" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+            
+        </footer>
+    </main>
+<script>
+    document.querySelector('#btnMenu').addEventListener('click', () => {
+            window.location.href = 'index.html';
+    });
+
+    document.querySelector('#btnProjets').addEventListener('click', () => {
+        window.location.href = 'index.html#projets';
+    });
+
+    document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+    document.querySelector('#btnMenu2').addEventListener('click', () => {
+            window.location.href = 'index.html';
+    });
+
+    document.querySelector('#btnProjets2').addEventListener('click', () => {
+        window.location.href = 'index.html#projets';
+    });
+
+    document.querySelector('#btnMeContacter2').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+</script>
+</body>
+</html>
