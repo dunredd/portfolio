@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Tanguy</title>
+    <link rel="icon" href="Logo.svg" type="svg+xml">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: "Geologica", sans-serif;
+        background-color: black;
+        font-weight: 100;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main{
+        width: 60%;
+        margin: 2rem;
+    }
+
+
+
+
+    .footer, header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+                gap: 2rem;
+            }
+
+            .white {
+                color: white;
+            }
+            .line {
+                display: flex;
+                gap: .4rem;
+                align-items: center;
+            }
+
+            .icon {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .textMenu:hover,
+            .textProjets:hover,
+            .textMeContacter:hover {
+                text-decoration: underline;
+            }
+
+            .btnMenu,
+            .btnProjets,
+            .btnMeContacter{
+                border: 0px;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btnP {
+                font-weight: 500;
+                font-size: medium;
+            }
+
+
+
+    h1{
+        padding-top: 3rem;
+        font-size: 3rem;
+    }
+    .titre{
+        padding-bottom: 2rem;
+    }
+    h2{
+        padding-top: 4rem;
+        font-size: 2rem;
+    }
+    p:not(.btnP){
+        padding-top: 1rem;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .paddingT{
+        padding-top: 1rem;
+    }
+    .paddingB{
+        padding-bottom: 1rem;
+    }
+    @media (max-width: 70rem){
+        main{
+        width: 80%;
+        }
+        h1{
+        padding-top: 4rem;
+        font-size: 3rem;
+        padding-bottom: 2rem;
+    }
+    }
+    a{
+        color: rgb(117, 117, 252);
+    }
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <button id="btnMenu" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+            
+        </header>
+        <h1 class="titre">Bento</h1>
+        <img src="BentoMockup.png" alt="">
+        <h2>Contexte</h2>
+        <p>Lors de notre apprentissage du code, nous avons eu la possibilité de réalisé un Bento et de le coder en HTML et CSS. Nous avons premièrement réalisé des maquettes sur Figma et ensuite nous avons codé sur Visual Studio Code.</p>
+        <h2 class="paddingB">Maquettes</h2>
+        <img src="BentoComposants.png" alt="">
+        <img src="BentoLight.png" alt="">
+        <img src="BentoLightPhone.png" alt="">
+        <img src="BentoDark.png" alt="">
+        <h2>Résultat final</h2>
+        <a href="https://github.com/dunredd/Bento-"><b>Code Complet</b></a>
+        <img class="paddingT" src="BentoMockup.png" alt="">
+
+        <footer class="footer">
+            <button id="btnMenu2" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets2" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter2" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+            
+        </footer>
+    </main>
+<script>
+    document.querySelector('#btnMenu').addEventListener('click', () => {
+            window.location.href = 'index.html';
+    });
+
+    document.querySelector('#btnProjets').addEventListener('click', () => {
+        window.location.href = 'index.html#projets';
+    });
+
+    document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+    document.querySelector('#btnMenu2').addEventListener('click', () => {
+            window.location.href = 'index.html';
+    });
+
+    document.querySelector('#btnProjets2').addEventListener('click', () => {
+        window.location.href = 'index.html#projets';
+    });
+
+    document.querySelector('#btnMeContacter2').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+</script>
+</body>
+</html>

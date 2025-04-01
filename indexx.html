@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Tanguy</title>
+    <link rel="icon" href="Logo.svg" type="svg+xml">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: "Geologica", sans-serif;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (max-width: 70rem){
+
+        h2{
+            padding-top: 2rem;
+        }
+        .h2ContainerBtn{
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+
+    main{
+        width: 80%;
+        margin: 2rem;
+    }
+    .header, .footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 3rem;
+                gap: 2rem;
+            }
+
+            .white {
+                color: white;
+            }
+            .line {
+                display: flex;
+                gap: .4rem;
+                align-items: center;
+            }
+
+            .icon {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .textMenu:hover,
+            .textProjets:hover,
+            .textMeContacter:hover,
+            .textVoir:hover {
+                text-decoration: underline;
+            }
+
+            .btnMenu,
+            .btnProjets,
+            .btnMeContacter, 
+            .btnVoir{
+                border: 0px;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btnP {
+                font-weight: 500;
+                font-size: medium;
+            }
+
+    .title{
+        width: 100%;
+
+    }
+    h1{
+        font-size: 5rem;
+    }
+    h2{
+        font-weight: 100;
+
+    }
+    .h2Container{
+        display: flex;
+        gap:2rem;
+
+    }
+    .spline{
+        width: 100%;
+
+    }
+    .h2ContainerBtn{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    .projetContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .projetsBox{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2%;
+    }
+    .titleProjetBox{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+        .projet{
+            border: solid 0px black;
+            border-radius: 2rem;
+            background-color: rgb(55, 55, 55);
+            height: 10rem;
+            width: 49%;
+            margin-top: 2%;
+
+        }
+        .projet:hover{
+            border: white 2px solid;
+        }
+
+        .footer{
+            margin-top: 2rem;
+        }
+
+        .img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <main class="mainTitle">
+        <header class="header">
+            <button id="btnMenu" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+        </header>
+        <section class="title3D">
+            <section class="spline">
+                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.79/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/0phjIXQcgvsVQ0ms/scene.splinecode"></spline-viewer>
+            </section>
+            <section class="title">
+                <h1>Bruno Tanguy</h1>
+                <article class="h2ContainerBtn">
+                    <article class="h2Container">
+                        <h2>Portfolio 24/25</h2>
+                        <h2>UX/UI Design</h2>
+                        <h2>Etudiant</h2>
+                        
+                    </article>
+                    <button id="btnVoir" class="btnVoir line">
+                        <img class="icon" src="VoirLesProjets.svg" alt="">
+                        <p class="textVoir white btnP">Voir les Projets</p>
+                        <img class="icon" src="VoirLesProjets.svg" alt="">
+                    </button>
+
+                </article>
+
+            </section>
+        </section >
+
+    </main>
+    <main class="mainProjet">
+        <section class="projetContainer" id="projet">
+            <article class="titleProjetBox">
+                <h1 class="titleProjet">Mes projets</h1>
+                <p class="textProjet">Nom du projets 2025</p>
+            </article>
+            <article class="projetsBox">
+                <button class="projet" id="geocaching">
+                    <img class="img" src="GeocachingMockupPresentation.png" alt="">
+                </button>
+                <button class="projet" id="cegedim">
+                    <img class="img" src="CegedimAxe2Ecran3Mockup.png" alt="">
+                </button>
+                <button class="projet" id="bento">
+                    <img class="img" src="BentoMockup.png" alt="">
+                </button>
+                <button class="projet">Coming soon...</button>
+                <button class="projet">Coming soon...</button>
+
+            </article>
+        </section>
+        <footer class="footer">
+            <button id="btnMenu2" class="btnMenu line">
+                <img class="icon" src="HomeWhite.svg" alt="">
+                <p class="textMenu white btnP">Menu</p>
+            </button>
+            <button id="btnProjets2" class="btnProjets line ">
+                <img class="icon" src="ProjetsWhite.svg" alt="">
+                <p class="textProjets white btnP">Projets</p>
+            </button>
+            <button id="btnMeContacter2" class="btnMeContacter line">
+                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <p class="textMeContacter white btnP">Me contacter</p>
+            </button>
+        </footer>
+    </main>
+
+<script>
+    
+
+    document.querySelector('#btnMenu').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelector('#btnProjets').addEventListener('click', () => {
+            document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
+        });
+
+    document.querySelector('#btnVoir').addEventListener('click', () => {
+        document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+
+    document.querySelector('#btnMenu2').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelector('#btnProjets2').addEventListener('click', () => {
+        document.querySelector('#projet').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelector('#btnMeContacter2').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+
+    document.querySelector('#geocaching').addEventListener('click', () => {
+        window.location.href = 'geocaching.html';
+    });
+    document.querySelector('#cegedim').addEventListener('click', () => {
+        window.location.href = 'cegedim.html';
+    });
+    document.querySelector('#bento').addEventListener('click', () => {
+        window.location.href = 'bento.html';
+    });
+</script>
+</body>
+</html>
