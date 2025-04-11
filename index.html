@@ -18,7 +18,7 @@
 
     body {
         font-family: "Geologica", sans-serif;
-        background-color: rgb(30, 30, 30);
+        background-color: rgb(5, 5, 5);
         color: rgb(230, 230, 230);
         font-weight: 500;
     }
@@ -30,6 +30,10 @@
         font-weight: 500;
         width: min-content;
     }
+    .phone{
+        display: none;
+
+    }
 
 
     @media (max-width: 70rem){
@@ -37,6 +41,10 @@
         .spline{
             display: none;
         }
+        .phone{
+        display: flex;
+
+    }
     }
     main{
         display: flex;
@@ -50,7 +58,7 @@
     .asideTop, .asideBottom{
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         padding: 2rem;
     }
     .brunotanguy{
@@ -143,6 +151,7 @@
                     <h2>DESIGN</h2>
                     <h2>UX/UI</h2>
                 </section>
+                <h1>PROJETS</h1>
     
                     <section class="projets">
                         <button class="projet" id="geocaching">
@@ -154,10 +163,17 @@
                         <button class="projet" id="bento">
                             <img class="img" src="BentoMockup.png" alt="">
                         </button>
+                        <button class="projet" id="hopin">
+                            <img class="img" src="HopinMockup.png" alt="">
+                        </button>
+                        <button class="projet" id="citadelles">
+                            <img class="img" src="CitadellesMockup.png" alt="">
+                        </button>
                     </section>
             </article>
 
             <article class="asideBottom">
+                <p class="phone">Accédez à la 3D sur ordinateur !</p>
                 <button id="btnMeContacter" class="btnMeContacter line">
                     <img class="icon" src="MeContacterWhite.svg" alt="">
                     <p class="textMeContacter white btnP">Me Contacter</p>
@@ -189,6 +205,12 @@
     });
     document.querySelector('#bento').addEventListener('click', () => {
         window.location.href = 'bento.html';
+    });
+    document.querySelector('#hopin').addEventListener('click', () => {
+        window.location.href = 'hopin.html';
+    });
+    document.querySelector('#citadelles').addEventListener('click', () => {
+        window.location.href = 'citadelles.html';
     });
 </script>
 </body>
