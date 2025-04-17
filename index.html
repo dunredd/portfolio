@@ -6,194 +6,303 @@
     <title>Bruno Tanguy</title>
     <link rel="icon" href="Logo.svg" type="svg+xml">
 <style>
-
+    
     @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
     * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
     }
-
-
     body {
-        font-family: "Geologica", sans-serif;
-        background-color: rgb(5, 5, 5);
-        color: rgb(230, 230, 230);
-        font-weight: 500;
-    }
-    .headbutton{
-        background-color: transparent;
-        border: solid rgb(0, 132, 79) 0px;
         color: white;
-        font-family: "Geologica", sans-serif;
         font-weight: 500;
-        width: min-content;
-    }
-    .phone{
-        display: none;
-
+        font-family: "Geologica", sans-serif;
+        background-color: rgb(0, 0, 0);
     }
 
 
-    @media (max-width: 70rem){
 
-        .spline{
-            display: none;
-        }
-        .phone{
+    .header, .bottom{
         display: flex;
+        background-color: black;
+        padding: 1rem;
+        justify-content: center;
+        gap: 2rem;
+
 
     }
+    .bottom{
+        margin: 1rem;
     }
-    main{
-        display: flex;
-        justify-content: space-between;
-    }
-    aside{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .asideTop, .asideBottom{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 2rem;
-    }
-    .brunotanguy{
-        display: flex;
-        gap: .5rem;
-    }
-    .spline{
-        width:2000rem;
-        height: 100vh;
-    }
+
 
     .white {
-                color: white;
-            }
-            .line {
-                display: flex;
-                gap: .4rem;
-                align-items: center;
-                width: min-content;
-            }
-
-            .icon {
-                width: 1rem;
-                height: 1rem;
-            }
-
-            .textMenu:hover,
-            .textProjets:hover,
-            .textMeContacter:hover,
-            .textVoir:hover {
-                text-decoration: underline;
-            }
-
-            .btnMenu,
-            .btnProjets,
-            .btnMeContacter, 
-            .btnVoir{
-                border: 0px;
-                background-color: transparent;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .btnP {
-                font-weight: 500;
-                font-size: medium;
-                text-wrap: nowrap;
-            }
-
-    .projet{
-        width: 15rem;
-        height: 5rem;
-        border-radius: .6rem;
-        border: 0px black solid;
-        transition: height 0.5s;
-        opacity: 70%;
+        color: white;
     }
-    .projet:hover{
-        height: 8rem;
-        opacity: 100%;
+    .line {
+        display: flex;
+        gap: .4rem;
+        align-items: center;
+        width: min-content;
+    }
+
+    .icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .textMenu:hover,
+    .textProject:hover,
+    .textMeContacter:hover,
+    .textVoir:hover {
+        text-decoration: underline;
+    }
+
+    .btnMenu,
+    .btnProject,
+    .btnMeContacter, 
+    .btnVoir{
+        border: 0px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnP {
+        font-weight: 500;
+        font-size: medium;
+        text-wrap: nowrap;
+    }
+
+    .homePage{
+        position: relative;
+    }
+
+    .title{
+        position: absolute;
+        top: 10%; /* Centre verticalement */
+        left: 10%; /* Centre horizontalement */
+        font-size: 1000%;
+        font-weight: 600;
+        font-family: "Outfit", sans-serif;
+
+    }
+    .subtitle{
+        position: absolute;
+        top: 35%; /* Centre verticalement */
+        left: 10%; /* Centre horizontalement */
+        font-size: 200%;
+        font-weight: 400;
+
+    }
+    .spline{
+        width: 100%;
+        height: 90vh;
+    }
+
+    .projetctPageTitle{
+        color: black;
+        font-size: 500%;
+        font-weight: 700;
+        padding: 2rem;
+    }
+
+    .projectPage{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 2rem;
+        background-color: rgb(238, 238, 238);
+    }
+    .project{
+        display: flex;
+        width: 50rem;
+        height: 20rem;
+        border: 0px black solid;
+        border-radius:1rem;
+        background-color: white;
+        transition: box-shadow 0.3s ease;
+    }
+    .project:hover{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .img{
-        width: 100%;
-        height: 100%;
+        width: 20rem;
+        height: auto;
+        padding: 1rem;
+        border-radius:1rem;
         object-fit: cover;
-        border-radius: .5rem;
+
+    }
+    .projectText{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        padding-top: 1rem;
+        padding-right: 1rem;
+    }
+    .projectText h2{
+        font-size: 300%;
+        padding-bottom: .5rem;
+    }
+    .projectText p {
+        text-align: left;
+        padding-bottom: 2rem;
+        font-size: 140%;
+        font-weight: 400;
     }
 
-    h1{
-        font-weight: 900;
+
+    @media (max-width: 60rem){
+        .spline{
+        width: auto;
+        height: 70vh;
     }
-    h2{
-        font-weight: 300;
+    .title{
+        font-size: 500%;
+        font-weight: 600;
+
     }
-    
+    .subtitle{
+        position: absolute;
+        top: 35%; /* Centre verticalement */
+        left: 10%; /* Centre horizontalement */
+        font-size: 150%;
+        font-weight: 400;
 
+    }
+    .project{
+        width: 90%;
+        height: 15rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .img{
+        height: 100%;
+        width: 10rem;
 
+    }
+    .projectText h2{
+        color: black;
+        font-size: 200%;
+        padding-bottom: .5rem;
+    }
+    .projectText p {
+        color: black;
+        text-align: left;
+        padding-bottom: 1rem;
+        font-size: 100%;
+        font-weight: 400;
+    }
 
-    </style>
+        
+}
+.codedBy{
+    font-weight: 100;
+}
+
+</style>
 </head>
 <body>
-    <main>
-        <aside>
-            <article class="asideTop">
-
-                <h1>PORTFOLIO</h1>
-                <section>
-                    <h2 class="brunotanguy"><div>Bruno</div><div>TANGUY</div></h2>
-                    <h2>ETUDIANT</h2>
-                    <h2>DESIGN</h2>
-                    <h2>UX/UI</h2>
-                </section>
-                <h1>PROJETS</h1>
-    
-                    <section class="projets">
-                        <button class="projet" id="geocaching">
-                            <img class="img" src="GeocachingMockupPresentation.png" alt="">
-                        </button>
-                        <button class="projet" id="cegedim">
-                            <img class="img" src="CegedimAxe2Ecran3Mockup.png" alt="">
-                        </button>
-                        <button class="projet" id="bento">
-                            <img class="img" src="BentoMockup.png" alt="">
-                        </button>
-                        <button class="projet" id="hopin">
-                            <img class="img" src="HopinMockup.png" alt="">
-                        </button>
-                        <button class="projet" id="citadelles">
-                            <img class="img" src="CitadellesMockup.png" alt="">
-                        </button>
-                    </section>
-            </article>
-
-            <article class="asideBottom">
-                <p class="phone">Accédez à la 3D sur ordinateur !</p>
-                <button id="btnMeContacter" class="btnMeContacter line">
-                    <img class="icon" src="MeContacterWhite.svg" alt="">
-                    <p class="textMeContacter white btnP">Me Contacter</p>
-                </button>
-            </article>
-
-
-            
-
-        </aside>
-        <article class="spline">
+    <header class="header">
+        <button id="btnMenu" class="btnMenu line">
+            <img class="icon" src="HomeWhite.svg" alt="">
+            <p class="textMenu white btnP">Menu</p>
+        </button>
+        <button id="btnProject" class="btnProject line">
+            <img class="icon" src="ProjetsWhite.svg" alt="">
+            <p class="textProject white btnP">Projets</p>
+        </button>
+        <button id="btnMeContacter" class="btnMeContacter line">
+            <img class="icon" src="MeContacterWhite.svg" alt="">
+            <p class="textMeContacter white btnP">Me contacter</p>
+        </button>
+    </header>
+    <main class="homePage">
+        
+        <div class="spline">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
-            <spline-viewer url="https://prod.spline.design/inDWTZ4HxmK3Axkz/scene.splinecode"></spline-viewer>           
-        </article>
+            <spline-viewer url="https://prod.spline.design/aLVWSyeEmU39NPPR/scene.splinecode"></spline-viewer>
+        </div>
+        <h1 class="title">bruno</h1>
+        <p class="subtitle">Etudiant en design UX/UI</p>
+
     </main>
+    <main class="projectPage">
+            <h2 id="project" class="projetctPageTitle">Projets</h2>
+
+            <button class="project" id="geocaching">
+                <img class="img" src="GeocachingMockupPresentation.png" alt="">
+                <div class="projectText">
+                    <h2>Geocaching</h2>
+                    <p>Refonte graphique - Gamification - UI</p>
+                    <p>Refonte graphique globale de l'application en ajoutant des fonctionalités liées à la communauté des geocacheurs.</p>
+                </div>
+            </button>
+            
+            <button class="project" id="cegedim">
+                <img class="img" src="CegedimAxe2Ecran3Mockup.png" alt="">
+                <div class="projectText">
+                    <h2>Cegedim</h2>
+                    <p>UX - IA - Innovation</p>
+                    <p>Recherche de la place et de l'intégration de l'IA dans les outils numériques professionnels.</p>
+                </div>
+            </button>
+            <button class="project" id="bento">
+                <img class="img" src="BentoMockup.png" alt="">
+                <div class="projectText">
+                    <h2>Code Bento</h2>
+                    <p>Code Web - Bento</p>
+                    <p>Apprentissage du HTML et CSS pour réaliser un Bento.</p>
+                </div>
+            </button>
+            <button class="project" id="hopin">
+                <img class="img" src="HopinMockup.png" alt="">
+                <div class="projectText">
+                    <h2>HopIn</h2>
+                    <p>Identité graphique - UX - UI</p>
+                    <p>Création d'un service numérique et de son identité graphique sur de la culture étudiante.</p>
+                </div>
+            </button>
+            <button class="project" id="citadelles">
+                <img class="img" src="CitadellesMockup.png" alt="">
+                <div class="projectText">
+                    <h2>Citad'elles</h2>
+                    <p>UX - Design Sprint - Association</p>
+                    <p>Amélioration du service de Cita'elles avec une partie pour les témoins des victimes</p>
+                </div>
+            </button>
+    </main>
+    <bottom class="bottom">
+        <button id="btnMenu2" class="btnMenu line">
+            <img class="icon" src="HomeWhite.svg" alt="">
+            <p class="textMenu white btnP">Menu</p>
+        </button>
+        <button id="btnMeContacter2" class="btnMeContacter line">
+            <img class="icon" src="MeContacterWhite.svg" alt="">
+            <p class="textMeContacter white btnP">Me contacter</p>
+        </button>
+        <p class="codedBy">Codé par Bruno Tanguy</p>
+    </bottom>
+
+    
 
 <script>
-    
+    document.querySelector('#btnMenu2').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    
+    document.querySelector('#btnProject').onclick = () => {
+            document.getElementById('project').scrollIntoView({ behavior: 'smooth' });
+        };
     document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+    document.querySelector('#btnProject2').onclick = () => {
+            document.getElementById('project').scrollIntoView({ behavior: 'smooth' });
+        };
+    document.querySelector('#btnMeContacter2').addEventListener('click', () => {
         window.location.href = 'contact.html';
     });
 
@@ -212,6 +321,7 @@
     document.querySelector('#citadelles').addEventListener('click', () => {
         window.location.href = 'citadelles.html';
     });
-</script>
+
+</script>  
 </body>
 </html>

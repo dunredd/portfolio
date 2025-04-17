@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Tanguy</title>
+    <link rel="icon" href="Logo.svg" type="svg+xml">
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    body {
+        font-family: "Geologica", sans-serif;
+        background-color: rgb(5, 5, 5);
+        color: rgb(230, 230, 230);
+        font-weight: 500;
+    }
+    .headbutton{
+        background-color: transparent;
+        border: solid rgb(0, 132, 79) 0px;
+        color: white;
+        font-family: "Geologica", sans-serif;
+        font-weight: 500;
+        width: min-content;
+    }
+    .phone{
+        display: none;
+
+    }
+
+
+    @media (max-width: 70rem){
+
+        .spline{
+            display: none;
+        }
+        .phone{
+        display: flex;
+        }
+    }
+    main{
+        display: flex;
+        justify-content: space-between;
+    }
+    aside{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .asideTop, .asideBottom{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+    }
+    .brunotanguy{
+        display: flex;
+        gap: .5rem;
+    }
+    .spline{
+        width:2000rem;
+        height: 100vh;
+    }
+
+    .white {
+                color: white;
+            }
+            .line {
+                display: flex;
+                gap: .4rem;
+                align-items: center;
+                width: min-content;
+            }
+
+            .icon {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .textMenu:hover,
+            .textProjets:hover,
+            .textMeContacter:hover,
+            .textVoir:hover {
+                text-decoration: underline;
+            }
+
+            .btnMenu,
+            .btnProjets,
+            .btnMeContacter, 
+            .btnVoir{
+                border: 0px;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .btnP {
+                font-weight: 500;
+                font-size: medium;
+                text-wrap: nowrap;
+            }
+
+    .projet{
+        width: 15rem;
+        height: 5rem;
+        border-radius: .6rem;
+        border: 0px black solid;
+        transition: height 0.5s;
+        opacity: 70%;
+    }
+    .projet:hover{
+        height: 8rem;
+        opacity: 100%;
+    }
+    .img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: .5rem;
+    }
+
+    h1{
+        font-weight: 900;
+    }
+    h2{
+        font-weight: 300;
+    }
+    
+
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <aside>
+            <article class="asideTop">
+
+                <h1>PORTFOLIO</h1>
+                <section>
+                    <h2 class="brunotanguy"><div>Bruno</div><div>TANGUY</div></h2>
+                    <h2>ETUDIANT</h2>
+                    <h2>DESIGN</h2>
+                    <h2>UX/UI</h2>
+                </section>
+                <h1>PROJETS</h1>
+    
+                    <section class="projets">
+                        <button class="projet" id="geocaching">
+                            <img class="img" src="GeocachingMockupPresentation.png" alt="">
+                        </button>
+                        <button class="projet" id="cegedim">
+                            <img class="img" src="CegedimAxe2Ecran3Mockup.png" alt="">
+                        </button>
+                        <button class="projet" id="bento">
+                            <img class="img" src="BentoMockup.png" alt="">
+                        </button>
+                        <button class="projet" id="hopin">
+                            <img class="img" src="HopinMockup.png" alt="">
+                        </button>
+                        <button class="projet" id="citadelles">
+                            <img class="img" src="CitadellesMockup.png" alt="">
+                        </button>
+                    </section>
+            </article>
+
+            <article class="asideBottom">
+                <p class="phone">Accédez à la 3D sur ordinateur !</p>
+                <button id="btnMeContacter" class="btnMeContacter line">
+                    <img class="icon" src="MeContacterWhite.svg" alt="">
+                    <p class="textMeContacter white btnP">Me Contacter</p>
+                </button>
+            </article>
+
+
+            
+
+        </aside>
+        <article class="spline">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+            <spline-viewer url="https://prod.spline.design/inDWTZ4HxmK3Axkz/scene.splinecode"></spline-viewer>           
+        </article>
+    </main>
+
+<script>
+    
+
+    document.querySelector('#btnMeContacter').addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+
+    document.querySelector('#geocaching').addEventListener('click', () => {
+        window.location.href = 'geocaching.html';
+    });
+    document.querySelector('#cegedim').addEventListener('click', () => {
+        window.location.href = 'cegedim.html';
+    });
+    document.querySelector('#bento').addEventListener('click', () => {
+        window.location.href = 'bento.html';
+    });
+    document.querySelector('#hopin').addEventListener('click', () => {
+        window.location.href = 'hopin.html';
+    });
+    document.querySelector('#citadelles').addEventListener('click', () => {
+        window.location.href = 'citadelles.html';
+    });
+</script>
+</body>
+</html>
