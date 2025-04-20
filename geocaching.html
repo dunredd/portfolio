@@ -16,9 +16,9 @@
 
     body {
         font-family: "Geologica", sans-serif;
-        background-color: black;
+        background-color: white;
         font-weight: 100;
-        color: white;
+        color: black;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -28,52 +28,47 @@
         margin: 2rem;
     }
 
-
-
-
     .footer, header {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 3rem;
-                gap: 2rem;
-            }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        gap: 2rem;
+    }
 
-            .white {
-                color: white;
-            }
-            .line {
-                display: flex;
-                gap: .4rem;
-                align-items: center;
-            }
+    .white {
+        color: white;
+    }
+    .line {
+        display: flex;
+        gap: .4rem;
+        align-items: center;
+    }
 
-            .icon {
-                width: 1rem;
-                height: 1rem;
-            }
+    .icon {
+        width: 1rem;
+        height: 1rem;
+    }
 
-            .textMenu:hover,
-            .textProjets:hover,
-            .textMeContacter:hover {
-                text-decoration: underline;
-            }
+    .textMenu:hover,
+    .textProjets:hover,
+    .textMeContacter:hover {
+        text-decoration: underline;
+    }
 
-            .btnMenu,
-            .btnProjets,
-            .btnMeContacter{
-                border: 0px;
-                background-color: transparent;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .btnP {
-                font-weight: 500;
-                font-size: medium;
-            }
-
-
+    .btnMenu,
+    .btnProjets,
+    .btnMeContacter{
+        border: 0px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnP {
+        font-weight: 500;
+        font-size: medium;
+    }
 
     h1{
         padding-top: 3rem;
@@ -102,13 +97,13 @@
     }
     @media (max-width: 70rem){
         main{
-        width: 80%;
+            width: 80%;
         }
         h1{
-        padding-top: 4rem;
-        font-size: 3rem;
-        padding-bottom: 2rem;
-    }
+            padding-top: 4rem;
+            font-size: 3rem;
+            padding-bottom: 2rem;
+        }
     }
     .projets{
         display: flex;
@@ -122,7 +117,7 @@
     }
     .projet{
         width: 50%;
-        height:8rem;
+        height: 8rem;
         padding: .25rem;
         border-radius: .6rem;
         border: 0px black solid;
@@ -131,7 +126,7 @@
         background-color: transparent;
     }
     .projet:hover{
-        width:60%;
+        width: 60%;
         opacity: 100%;
     }
 
@@ -141,62 +136,59 @@
     <main class="main">
         <header class="header">
             <button id="btnMenu" class="btnMenu line">
-                <img class="icon" src="HomeWhite.svg" alt="">
+                <img class="icon" src="Home.svg" alt="">
                 <p class="textMenu white btnP">Menu</p>
             </button>
             <button id="btnMeContacter" class="btnMeContacter line">
-                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <img class="icon" src="MeContacter.svg" alt="">
                 <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-            
+
         </header>
-        <h1 class="titre">Geocaching</h1>
+        <h1 class="titre">Géocaching</h1>
         <img src="GeocachingMockupPresentation.png" alt="">
 
-        <h2>Qu’est ce que geocaching ?</h2>
-        <p>Geocaching est une chasse au trésor moderne qui utilise une application mobile avec un GPS intégré pour trouver des caches dissimulées partout dans le monde. Ces conteneur, parfois remplis d’objets ou d’un journal de bord, permettent d’explorer des lieux méconnus tout en partageant une aventure avec une communauté.</p>
-        <p><b>Fonctionnalité 1:</b> Recherche de geocaches</p>
-        <p><b>Fonctionnalité 2:</b> Statistiques et badges</p>        
-        <p><b>Fonctionnalité 3:</b> Communauté et chats</p>    
+        <h2>Qu’est-ce que le Géocaching ?</h2>
+        <p>Le geocaching est une chasse au trésor moderne qui utilise une application mobile avec un GPS intégré pour trouver des caches dissimulées partout dans le monde. Ces conteneurs, parfois remplis d’objets ou d’un journal de bord, permettent d’explorer des lieux méconnus tout en partageant une aventure avec une communauté.</p>
+        <p><b>Fonctionnalité 1 :</b> Recherche de géocaches</p>
+        <p><b>Fonctionnalité 2 :</b> Statistiques et badges</p>
+        <p><b>Fonctionnalité 3 :</b> Communauté et chats</p>
 
         <h1>Design actuel</h1>
-        <p>Nous avons testé l’application geocaching dans la ville de Nantes et nous avons essayé de trouver 10 caches. Finalement, nous en avons trouvé que 8 caches au cours de cette session. Nous ne les avons pas trouvé car certaines caches sont déplacées ou emportées. Nous avons trouvé que c’était un moyen amusant de découvrir une ville surtout quand cette aventure est vécue en petit groupe.</p>
+        <p>Nous avons testé l’application de Géocaching dans la ville de Nantes et nous avons essayé de trouver 10 caches. Finalement, nous n'en avons trouvé que 8 caches au cours de cette session. Nous ne les avons pas trouvées car certaines caches sont déplacées ou emportées. Nous avons trouvé que c’était un moyen amusant de découvrir une ville, surtout quand cette aventure est vécue en petit groupe.</p>
         <img class="paddingT" src="GeocachingActuel.png" alt="">
-        <p>source: www.codeur.com</p>
+        <p>Source : www.codeur.com</p>
         <img class="paddingT" src="GeocachingPaletteBase.svg" alt="">
 
         <h2>UI</h2>
         <p>+ Design épuré</p>
-        <p>+ Icones claire et intuitives</p>
-        <p>- Surcharge d’information</p>
+        <p>+ Icônes claires et intuitives</p>
+        <p>- Surcharge d’informations</p>
         <p>- Tailles des éléments</p>
 
         <h2>UX</h2>
         <p>+ Navigation fluide</p>
-        <p>+ personnalisation</p>
+        <p>+ Personnalisation</p>
         <p>- Frustrations liées aux caches (caches perdues ou volées)</p>
-        <p>- Accessibilité limité (fonctionnalités premium)</p>
+        <p>- Accessibilité limitée (fonctionnalités premium)</p>
 
-        <h1>Refonte de l'App</h1>
-        <p>Notre volonté était de rendre l’expérience plus ludique et sociale pour les utilisateurs. Nous avons créé une partie communautaire avec la possiblité de créer un groupe entre amis, avec une compétition en interne et entre toutes les équipes proches de vous. Nous avons aussi créé des défis personnels. Afin d’être sûr que les joueurs ont bien trouvé une cache, nous avons ajouté un système de QR code qui doit être scanné par le chercheur.</p>
-        
+        <h1>Refonte de l'application</h1>
+        <p>Notre volonté était de rendre l’expérience plus ludique et sociale pour les utilisateurs. Nous avons créé une partie communautaire avec la possibilité de créer un groupe entre amis, avec une compétition en interne et entre toutes les équipes proches de vous. Nous avons aussi créé des défis personnels. Afin d’être sûrs que les joueurs ont bien trouvé une cache, nous avons ajouté un système de QR code qui doit être scanné par le chercheur.</p>
 
         <h2>Choix graphiques</h2>
         <img class="paddingT" src="GeocachingPalette.svg" alt="">
         <p>Nous avons choisi de constituer nos composants avec des icônes arrondies et pleines, souvent de couleur blanche. Nous avons ensuite ajouté une ombre d’une couleur plus foncée que le fond du bouton. Cette ombre permet de donner du volume aux icônes sans compliquer la lisibilité pour l’utilisateur. Nous avons également fait le choix de faire seulement un Light Mode, ce design permet une meilleure visibilité dans les milieux extérieurs.</p>
         <p>L’application adopte un design moderne et épuré, avec des couleurs sobres et des touches d’orange pour les éléments interactifs.</p>
         <img class="paddingT" src="GeocachingBottomBar.svg" alt="">
-        <p>Nous avons choisis la police Jakarta Sans pour sa modernité et sa lisibilité.</p>
+        <p>Nous avons choisi la police Jakarta Sans pour sa modernité et sa lisibilité.</p>
         <img class="paddingT" src="GeocachingJakarta.png" alt="">
-        <p>Afin de rendre l’expérience encore plus immersive et authentique, chaque cache contiendrait désormais un QR code unique que les utilisateurs pourraient scanner directement via la fonction dédiée dans leur profil. Ce scan servirait à confirmer qu’une cache a été trouvée, évitant ainsi toute déclaration arbitraire et renforçant l’aspect exploratoire du Geocaching.</p>
+        <p>Afin de rendre l’expérience encore plus immersive et authentique, chaque cache contiendrait désormais un QR code unique que les utilisateurs pourraient scanner directement via la fonction dédiée dans leur profil. Ce scan servirait à confirmer qu’une cache a été trouvée, évitant ainsi toute déclaration arbitraire et renforçant l’aspect exploratoire du Géocaching.</p>
         <p>Tandis que les niveaux, badges et classements renforcent l’aspect ludique et compétitif, cette fonctionnalité assurerait une validation fiable des découvertes.</p>
-        
-        
+
         <h2>Maquettes</h2>
         <img class="paddingT" src="GeocachingMaquettes.svg" alt="">
         <img class="paddingT paddingB" src="GeocachingMockup.png" alt="">
-        <p class="paddingB">L’utilisateur est désormais prêt à découvrir le plein potentiel du concept de Geocaching !</p>
-
+        <p class="paddingB">L’utilisateur est désormais prêt à découvrir le plein potentiel du concept de Géocaching !</p>
 
         <p>Voir d'autres projets :</p>
 
@@ -217,14 +209,14 @@
 
         <footer class="footer">
             <button id="btnMenu2" class="btnMenu line">
-                <img class="icon" src="HomeWhite.svg" alt="">
+                <img class="icon" src="Home.svg" alt="">
                 <p class="textMenu white btnP">Menu</p>
             </button>
             <button id="btnMeContacter2" class="btnMeContacter line">
-                <img class="icon" src="MeContacterWhite.svg" alt="">
+                <img class="icon" src="MeContacter.svg" alt="">
                 <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-            
+
         </footer>
     </main>
 <script>

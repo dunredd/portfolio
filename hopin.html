@@ -28,52 +28,47 @@
         margin: 2rem;
     }
 
-
-
-
     .footer, header {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 3rem;
-                gap: 2rem;
-            }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        gap: 2rem;
+    }
 
-            .white {
-                color: rgb(0, 0, 0);
-            }
-            .line {
-                display: flex;
-                gap: .4rem;
-                align-items: center;
-            }
+    .white {
+        color: rgb(0, 0, 0);
+    }
+    .line {
+        display: flex;
+        gap: .4rem;
+        align-items: center;
+    }
 
-            .icon {
-                width: 1rem;
-                height: 1rem;
-            }
+    .icon {
+        width: 1rem;
+        height: 1rem;
+    }
 
-            .textMenu:hover,
-            .textProjets:hover,
-            .textMeContacter:hover {
-                text-decoration: underline;
-            }
+    .textMenu:hover,
+    .textProjets:hover,
+    .textMeContacter:hover {
+        text-decoration: underline;
+    }
 
-            .btnMenu,
-            .btnProjets,
-            .btnMeContacter{
-                border: 0px;
-                background-color: transparent;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .btnP {
-                font-weight: 500;
-                font-size: medium;
-            }
-
-
+    .btnMenu,
+    .btnProjets,
+    .btnMeContacter{
+        border: 0px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnP {
+        font-weight: 500;
+        font-size: medium;
+    }
 
     h1{
         padding-top: 3rem;
@@ -101,13 +96,13 @@
     }
     @media (max-width: 70rem){
         main{
-        width: 80%;
+            width: 80%;
         }
         h1{
-        padding-top: 4rem;
-        font-size: 3rem;
-        padding-bottom: 2rem;
-    }
+            padding-top: 4rem;
+            font-size: 3rem;
+            padding-bottom: 2rem;
+        }
     }
     .projets{
         display: flex;
@@ -121,7 +116,7 @@
     }
     .projet{
         width: 50%;
-        height:8rem;
+        height: 8rem;
         padding: .25rem;
         border-radius: .6rem;
         border: 0px black solid;
@@ -130,7 +125,7 @@
         background-color: transparent;
     }
     .projet:hover{
-        width:60%;
+        width: 60%;
         opacity: 100%;
     }
 
@@ -147,44 +142,43 @@
                 <img class="icon" src="MeContacter.svg" alt="">
                 <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-            
+
         </header>
-        <h1 class="titre">HopIn: La culture étudiante</h1>
+        <h1 class="titre">HopIn : La culture étudiante</h1>
         <img src="HopinMockup.png" alt="">
         <h2>Contexte</h2>
-        <p>HopIn est un projet fictif qui a pour but de faciliter l'accès à la culture pour les jeunes et de créer des évènements pour étudiants. Ce projet a été réalisé en groupe de 4. Nous avons réalisé une chartre graphique complète s'accompagnant des maquettes de l'application et de la version desktop.</p>
+        <p>HopIn est un projet fictif qui a pour but de faciliter l'accès à la culture pour les jeunes et de créer des événements pour étudiants. Ce projet a été réalisé en groupe de 4. Nous avons réalisé une charte graphique complète s'accompagnant des maquettes de l'application et de la version desktop.</p>
 
         <h2>Points forts du service</h2>
-        <p><b>Centralisation des évènements: </b>Une seule plateforme pour accéder à l'ensemble des activités culturelles locales.</p>
-        <p><b>Personnalisation: </b>Suggestions adaptées aux préférences, à la localisation et à l’emploi du temps des utilisateurs.</p>
-        <p><b>Création d’événements: </b>Possibilité pour les étudiants de proposer leurs propres activités, favorisant l’initiative personnelle.</p>
-        <p><b>Accès abordable: </b>Mise en avant des événements gratuits ou à tarif réduit pour les budgets étudiants.</p>
+        <p><b>Centralisation des événements :</b> Une seule plateforme pour accéder à l'ensemble des activités culturelles locales.</p>
+        <p><b>Personnalisation :</b> Suggestions adaptées aux préférences, à la localisation et à l’emploi du temps des utilisateurs.</p>
+        <p><b>Création d’événements :</b> Possibilité pour les étudiants de proposer leurs propres activités, favorisant l’initiative personnelle.</p>
+        <p><b>Accès abordable :</b> Mise en avant des événements gratuits ou à tarif réduit pour les budgets étudiants.</p>
 
         <h2>Besoins des personas</h2>
-        <p>Rencontrer des personnes s’amuser, faire une activité autre que ses études, partager des moments avec ses amis, partager sa curiosité pour les arts et passer un bon moment avec des personnes qu’il ne connait pas nécessairement.</p>
-        
+        <p>Rencontrer des personnes, s'amuser, faire une activité autre que ses études, partager des moments avec ses amis, partager sa curiosité pour les arts et passer un bon moment avec des personnes qu’il ne connaît pas nécessairement.</p>
+
         <h2 class="paddingB">Identité graphique</h2>
-        <img src="HopinIdentité1.png" alt="">
-        <img src="HopinIdentité2.png" alt="">
-        <img src="HopinIdentité3.png" alt="">
-        <img src="HopinIdentité4.png" alt="">
+        <img src="HopinIdentite1.png" alt="">
+        <img src="HopinIdentite2.png" alt="">
+        <img src="HopinIdentite3.png" alt="">
+        <img src="HopinIdentite4.png" alt="">
 
         <h2>Parcours d'entrée</h2>
-        <p>L'utilsateur peut découvrir l'application via un parcours introductif. Ce parcours est segmenté en 3 pop-ups qui peuvent être ignoré si voulu.</p>
-        <img class="paddingT" src="HopinParcoursEntrée.png" alt="">
+        <p>L'utilisateur peut découvrir l'application via un parcours introductif. Ce parcours est segmenté en 3 pop-ups qui peuvent être ignorés si voulu.</p>
+        <img class="paddingT" src="HopinParcoursEntree.png" alt="">
 
         <h2>Parcours de création de compte</h2>
-        <p>L'utilisateur va découvrir l'application sans avoir besoin de se connecter. Cette approche permet d'éviter les lines de frictions avec le service. La connexion a un compte est engageant et sera obligatoire lorsque l'utilisateur voudra participer à des évènements.</p>
+        <p>L'utilisateur va découvrir l'application sans avoir besoin de se connecter. Cette approche permet d'éviter les frictions avec le service. La connexion à un compte est engageante et sera obligatoire lorsque l'utilisateur voudra participer à des événements.</p>
         <img class="paddingT" src="Hopin1.png" alt="">
-        
 
-        <h2>Parcours réservation d'évènement</h2>
-        <p>L'utilsateur peut réserver un évènement et accéder aux informations pour le réserver si c'est un service autre. A la fin du parcours, si l'évènement est répétitif, l'utilisateur peut le noter pour informer les autre utilisateurs qui consulteront cet évènement </p>
+        <h2>Parcours réservation d'événement</h2>
+        <p>L'utilisateur peut réserver un événement et accéder aux informations pour le réserver si c'est un service autre. À la fin du parcours, si l'événement est répétitif, l'utilisateur peut le noter pour informer les autres utilisateurs qui consulteront cet événement.</p>
         <img class="paddingB paddingT" src="Hopin2.png" alt="">
         <img src="Hopin2,1.png" alt="">
 
         <h2>Parcours création d'événements</h2>
-        <p>Il existe deux version de ce parcours, une sur téléphone et une sur ordinateur. Bien que les utilisateurs de l'applications aurait tendance à utiliser un telephone, ceux qui auraient tendance à les créer sur ordinateur.</p>
+        <p>Il existe deux versions de ce parcours, une sur téléphone et une sur ordinateur. En effet, pour créer un évènement il est des fois préférable d'être sur ordinateur.</p>
         <img class="paddingB paddingT" src="Hopin3.png" alt="">
         <img src="Hopin3,1.png" alt="">
 
@@ -214,7 +208,7 @@
                 <img class="icon" src="MeContacter.svg" alt="">
                 <p class="textMeContacter white btnP">Me contacter</p>
             </button>
-            
+
         </footer>
     </main>
 <script>
