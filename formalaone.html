@@ -53,14 +53,27 @@
         /* --- Grid Layout --- */
         .grid-container { display: grid; gap: var(--grid-gap); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .overview-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } .drivers-grid, .staff-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
-        /* MODIFIED: Car Dev Grid */
-        .car-dev-grid { grid-template-columns: 1fr; } /* Single column for Car Dev */
-        .car-dev-sections-grid { /* New grid for sections below comparison/graph */
+        /* MODIFIED: Car Dev Grid Layout */
+        .car-dev-grid { grid-template-columns: 1fr; } /* Outer grid is single column */
+        .car-dev-top-section { /* Container for stats & comparison table */
+            display: grid;
+            /* Force 2 columns until medium breakpoint */
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--grid-gap);
+            align-items: start; /* Align items to the top */
+        }
+        @media (max-width: 992px) { /* Stack on medium screens and below */
+            .car-dev-top-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        .car-dev-sections-grid { /* Grid for upgrade sections */
              display: grid;
              gap: var(--grid-gap);
              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
              margin-top: var(--grid-gap);
         }
+        /* END MODIFIED */
         .infra-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
         .finance-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } .sponsor-offer-grid, .active-sponsor-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
         .season-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
@@ -84,35 +97,17 @@
         #race-calendar-list { list-style: none; padding: 0; max-height: 400px; overflow-y: auto;} #race-calendar-list li { padding: 8px 10px; border-bottom: 1px solid var(--card-border); transition: background-color 0.15s ease; font-size: 0.95em; cursor: default;} #race-calendar-list li:hover { background-color: var(--hover-bg-color); } #race-calendar-list li.next-race { font-weight: bold; background-color: #3a3a3a; border-left: 3px solid var(--accent-color); color: var(--accent-color); padding-left: 7px; } #race-calendar-list li.completed-race { opacity: 0.6; } #race-calendar-list li.completed-race .result { float: right; font-size: 0.9em; color: var(--secondary-color);}
         /* Race Sim Area Adjustments */
         .race-data-area { background-color: var(--card-bg); padding: 15px; border: 1px solid var(--card-border); border-radius: var(--border-radius); min-height: 450px; display: flex; flex-direction: column; }
-        /* --- MODIFIED: Race Sim Leaderboard (No Scroll) --- */
-        #race-sim-leaderboard {
-            flex-grow: 1; /* Allows it to take space */
-            flex-shrink: 0; /* Prevents shrinking if other content grows */
-            margin-bottom: 10px;
-            /* Removed max-height and overflow-y */
-        }
-        #race-sim-leaderboard p { font-size: 0.8em; /* Slightly smaller font */ margin-bottom: 3px; /* Reduced margin */ color: var(--secondary-color); white-space: nowrap; }
+        #race-sim-leaderboard { flex-grow: 1; flex-shrink: 0; margin-bottom: 10px; }
+        #race-sim-leaderboard p { font-size: 0.8em; margin-bottom: 3px; color: var(--secondary-color); white-space: nowrap; }
         #race-sim-leaderboard strong { color: var(--text-color); }
-        /* --- END MODIFIED --- */
         #race-sim-events { height: 150px; overflow-y: scroll; list-style-type: none; padding-left: 0; margin-top: 10px; border-top: 1px solid var(--card-border); padding-top: 10px; font-size: 0.85em;} #race-sim-events li { padding: 3px 0; border-bottom: 1px dotted var(--tab-border);} #race-sim-events li:last-child { border-bottom: none;}
         #race-speed-controls { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--tab-border); text-align: center; } #race-speed-controls button { margin: 0 5px; } #race-speed-controls button.active { background-color: var(--primary-color); color: #000; border: 1px solid var(--primary-color); }
         #player-strategy-area { margin-bottom: 20px; padding: 15px; border: 1px dashed var(--tab-border); border-radius: var(--border-radius); } #quali-results-area { margin-bottom: 20px; }
         /* Race Sim Tab - Result Table */
         #race-results-area { margin-bottom: 20px; }
         #race-results-area h3 { margin-bottom: 10px; }
-        /* --- ADDED: Pre-Race Layout Container --- */
-        #pre-race-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive 2-column layout */
-            gap: var(--grid-gap);
-            margin-bottom: var(--grid-gap); /* Keep spacing below */
-        }
-        /* Adjust cards inside the pre-race layout if needed */
-        #pre-race-layout > .info-card {
-            margin-bottom: 0; /* Remove bottom margin since grid gap handles spacing */
-        }
-        /* --- END ADDED --- */
-
+        #pre-race-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--grid-gap); margin-bottom: var(--grid-gap); }
+        #pre-race-layout > .info-card { margin-bottom: 0; }
         /* Driver Filter Styles */
         #driver-filters { display: flex; flex-wrap: wrap; gap: 15px; padding: 15px; background-color: var(--tab-bg); border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid var(--card-border); }
         #driver-filters label { font-weight: bold; color: var(--secondary-color); margin-right: 5px; white-space: nowrap; }
@@ -126,13 +121,21 @@
         #car-comparison-table .player-row td { background-color: rgba(77, 171, 247, 0.1); font-weight: bold; }
         #car-comparison-table .best-row td { background-color: rgba(64, 192, 87, 0.1); }
         #car-comparison-table .avg-row td { background-color: rgba(160, 160, 160, 0.1); }
-        /* Development Chart Container */
-        #development-chart-container { min-height: 300px; max-height: 400px; margin-top: 20px; padding: 15px; background-color: var(--card-bg); border-radius: var(--border-radius); border: 1px solid var(--card-border); }
+        /* Car Comparison Chart Container */
+        #car-comparison-chart-container {
+            min-height: 400px; /* Increased height */
+            max-height: 550px; /* Increased max-height */
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--card-border);
+        }
         /* Utility Classes */
         .text-positive { color: var(--positive-color) !important; } .text-negative { color: var(--negative-color) !important; } .text-accent { color: var(--accent-color) !important; } .text-secondary { color: var(--secondary-color) !important; } .text-light { color: var(--text-color) !important; } .text-large { font-size: 1.4em; font-weight: bold; color: var(--heading-color); } .text-center { text-align: center; } .bold { font-weight: bold; } .hidden { display: none !important; }
         /* --- Responsiveness --- */
         @media (max-width: 1200px) { .drivers-grid, .staff-grid, .season-grid, .leaderboard-grid { grid-template-columns: 1fr; } .card-span-2, .card-span-3 { grid-column: span 1; } }
-        @media (max-width: 992px) { .main-header { flex-direction: column; align-items: stretch; } .game-status span { margin: 5px 5px;} #advance-time-btn { width: 100%; margin-left:0; } .car-dev-grid > .info-card > div[style*="grid"] { grid-template-columns: 1fr; } /* Stack comparison/stats on smaller screens */ }
+        @media (max-width: 992px) { .main-header { flex-direction: column; align-items: stretch; } .game-status span { margin: 5px 5px;} #advance-time-btn { width: 100%; margin-left:0; } .car-dev-top-section { grid-template-columns: 1fr; } /* Stack comparison/stats on smaller screens */ }
         @media (max-width: 768px) { .game-status span { font-size: 0.85em; } .grid-container { grid-template-columns: 1fr; } .tabs { white-space: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; } .tab-button { display: inline-block; float: none; } th, td { white-space: normal; } #driver-filters { flex-direction: column; align-items: stretch; } /* Stack pre-race columns on small screens */ #pre-race-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -239,55 +242,52 @@
         <!-- Car Development Tab -->
         <div id="CarDevelopment" class="tab-content">
             <h2>Car Development</h2>
-            <div class="grid-container car-dev-grid">
-                 <!-- Car Performance and Comparison Section -->
-                 <div class="info-card card-full-width">
-                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--grid-gap);">
-                         <div>
-                             <h3>Current Car Performance</h3>
-                             <div id="car-stats-display" style="display: flex; justify-content: space-around; padding: 10px 0; flex-wrap: wrap;">
-                                 <span>Aero: <strong id="car-stat-aero">[Val]</strong></span>
-                                 <span>Engine: <strong id="car-stat-engine">[Val]</strong></span>
-                                 <span>Chassis: <strong id="car-stat-chassis">[Val]</strong></span>
-                                 <span>Reliability: <strong id="car-stat-reliability">[Val]</strong></span>
-                             </div>
-                             <h3 style="margin-top: 15px;">In Progress R&D</h3>
-                             <ul id="inprogress-rd-list"><li>No active developments.</li></ul>
-                         </div>
-                         <div>
-                             <h3>Grid Comparison</h3>
-                             <div class="table-container">
-                                 <table id="car-comparison-table">
-                                     <thead>
-                                         <tr><th>Stat</th><th>Your Car</th><th>Grid Avg.</th><th>Grid Best</th></tr>
-                                     </thead>
-                                     <tbody id="car-comparison-tbody">
-                                         <!-- Populated by JS -->
-                                         <tr><td>Aero</td><td>...</td><td>...</td><td>...</td></tr>
-                                         <tr><td>Engine</td><td>...</td><td>...</td><td>...</td></tr>
-                                         <tr><td>Chassis</td><td>...</td><td>...</td><td>...</td></tr>
-                                         <tr><td>Reliability</td><td>...</td><td>...</td><td>...</td></tr>
-                                     </tbody>
-                                 </table>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+            <div class="grid-container car-dev-grid"> <!-- Single column -->
 
-                 <!-- Development Progress Chart -->
-                 <div class="info-card card-full-width">
-                     <h3>Development Progress (<span id="dev-chart-year">[Year]</span>)</h3>
-                     <div id="development-chart-container">
-                         <canvas id="developmentChart"></canvas>
-                     </div>
-                 </div>
+                <!-- MODIFIED: Combined Top Section Wrapper -->
+                <div class="info-card card-full-width car-dev-top-section">
+                     <div> <!-- Column 1: Player Stats & R&D -->
+                        <h3>Current Car Performance</h3>
+                        <div id="car-stats-display" style="display: flex; justify-content: space-around; padding: 10px 0; flex-wrap: wrap;">
+                            <span>Aero: <strong id="car-stat-aero">[Val]</strong></span>
+                            <span>Engine: <strong id="car-stat-engine">[Val]</strong></span>
+                            <span>Chassis: <strong id="car-stat-chassis">[Val]</strong></span>
+                            <span>Reliability: <strong id="car-stat-reliability">[Val]</strong></span>
+                        </div>
+                        <h3 style="margin-top: 15px;">In Progress R&D</h3>
+                        <ul id="inprogress-rd-list"><li>No active developments.</li></ul>
+                    </div>
+                    <div> <!-- Column 2: Grid Comparison Table -->
+                        <h3>Grid Comparison (Current)</h3> <!-- Changed title -->
+                        <div class="table-container">
+                            <table id="car-comparison-table">
+                                <thead>
+                                    <tr><th>Stat</th><th>Your Car</th><th>Grid Avg.</th><th>Grid Best</th></tr>
+                                </thead>
+                                <tbody id="car-comparison-tbody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODIFIED -->
 
-                  <!-- Upgrade Sections (now in their own grid) -->
-                  <div class="car-dev-sections-grid card-full-width">
-                     <div class="development-section"><h3>Aerodynamics</h3><div id="aero-upgrades"><p>Loading upgrades...</p></div></div>
-                     <div class="development-section"><h3>Engine</h3><div id="engine-upgrades"><p>Loading upgrades...</p></div></div>
-                     <div class="development-section"><h3>Chassis</h3><div id="chassis-upgrades"><p>Loading upgrades...</p></div></div>
-                 </div>
+                <!-- MODIFIED: Chart Section - Changed Title -->
+                <div class="info-card card-full-width">
+                    <h3>Car Performance Over Season (Grid)</h3> <!-- Changed title -->
+                    <div id="car-comparison-chart-container">
+                        <canvas id="carComparisonChart"></canvas>
+                    </div>
+                </div>
+                <!-- END MODIFIED -->
+
+                 <!-- Upgrade Sections (now in their own grid) -->
+                 <div class="car-dev-sections-grid card-full-width">
+                    <div class="development-section"><h3>Aerodynamics</h3><div id="aero-upgrades"><p>Loading upgrades...</p></div></div>
+                    <div class="development-section"><h3>Engine</h3><div id="engine-upgrades"><p>Loading upgrades...</p></div></div>
+                    <div class="development-section"><h3>Chassis</h3><div id="chassis-upgrades"><p>Loading upgrades...</p></div></div>
+                </div>
             </div>
         </div>
         <!-- Infrastructure Tab -->
@@ -326,10 +326,10 @@
             <h2 id="race-sim-title">Race Simulation & Strategy</h2>
             <p id="race-sim-status-msg">Waiting for Race Stage...</p>
 
-            <!-- === MODIFIED: Added Container for Pre-Race === -->
+            <!-- Pre-Race Layout Container -->
             <div id="pre-race-layout" class="hidden">
                 <!-- Qualifying Results Area -->
-                <div id="quali-results-area" class="info-card"> <!-- Removed hidden class, container handles visibility -->
+                <div id="quali-results-area" class="info-card">
                      <h3>Qualifying Results - <span id="quali-results-track-name"></span></h3>
                      <div class="table-container">
                          <table id="quali-results-table">
@@ -340,14 +340,14 @@
                 </div>
 
                 <!-- Strategy Selection Area -->
-                <div id="player-strategy-area" class="info-card"> <!-- Removed hidden class, container handles visibility -->
+                <div id="player-strategy-area" class="info-card">
                      <h4>Select Race Strategy</h4>
                      <div id="strategy-options-list"></div>
                      <button id="confirm-strategy-btn" class="btn btn-primary btn-sm" onclick="confirmStrategy()">Confirm Strategy</button>
                      <p><small>Selected Strategy: <span id="selected-strategy-display">None</span></small></p>
                 </div>
             </div>
-            <!-- === END MODIFIED === -->
+            <!-- End Pre-Race Layout -->
 
             <!-- Race Simulation Area (Live Data / Events) -->
             <div id="race-sim-content" class="grid-container race-sim-grid hidden">
@@ -405,7 +405,7 @@
     let leaderboard = {}; let potentialSponsors = []; let staffTrainingOptions = {}; let aiCarData = {}; let transactionLog = [];
     let raceSimulationInterval = null; let liveLeaderboardData = { drivers: [] }; let raceSpeedMultiplier = 1;
     let availableDriversPool = []; let baseRaceCalendar = [];
-    let developmentChartInstance = null; // Added for Chart.js
+    let carComparisonChartInstance = null; // Chart.js instance variable for the performance chart
 
     // ==========================================================================
     // DATA STRUCTURES (Initial Definitions)
@@ -438,35 +438,98 @@
     function shuffleArray(array) { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; }
     function shuffleAndAssignRaceCalendar() { let shuffledRaces = shuffleArray([...baseRaceCalendar]); shuffledRaces.forEach((race, index) => { race.calendarId = index + 1; }); season.races = shuffledRaces; console.log("Race calendar shuffled for the season."); }
 
-    // --- ADDED: Function to record player car stats ---
-    function recordCarDevelopmentHistory() {
-        if (!gameState.playerCarDevelopmentHistory) {
-            gameState.playerCarDevelopmentHistory = [];
-        }
-        // Store a deep copy of the stats
-        const currentStats = JSON.parse(JSON.stringify(playerCar.baseStats));
-        gameState.playerCarDevelopmentHistory.push({
-            year: gameState.currentYear,
-            week: gameState.currentWeek,
-            stats: currentStats
-        });
-        // Optional: Limit history size
-        // if (gameState.playerCarDevelopmentHistory.length > 100) { // Keep last ~4 seasons
-        //     gameState.playerCarDevelopmentHistory.shift();
-        // }
+    // NEW Helper to calculate a single performance metric
+    function calculateOverallPerformance(carData) {
+        if (!carData || !carData.baseStats) return 50; // Default value if no data
+        const { aero, engine, chassis } = carData.baseStats;
+        // Simple average of the three core performance stats
+        return ( (aero || 50) + (engine || 50) + (chassis || 50) ) / 3;
     }
 
+    // Helper function to convert hex color to rgba for background fill
+    function hexToRgba(hex, alpha = 1) {
+        hex = hex.replace('#', '');
+        const r = parseInt(hex.length === 3 ? hex.slice(0, 1).repeat(2) : hex.slice(0, 2), 16);
+        const g = parseInt(hex.length === 3 ? hex.slice(1, 2).repeat(2) : hex.slice(2, 4), 16);
+        const b = parseInt(hex.length === 3 ? hex.slice(2, 3).repeat(2) : hex.slice(4, 6), 16);
+        // Basic check for valid RGB values
+        if (isNaN(r) || isNaN(g) || isNaN(b)) {
+            console.warn(`Invalid hex color: ${hex}. Using default.`);
+            return `rgba(160, 160, 160, ${alpha})`; // Default gray
+        }
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    // ==========================================================================
+    // HISTORY & STATS RECORDING
+    // ==========================================================================
+
+    function recordPerformanceHistory() {
+        console.log(`Recording performance history at Week ${gameState.currentWeek}, Stage ${gameState.currentGameStage}`);
+        teams.forEach(team => {
+            const carData = getCarData(team.id);
+            const performance = calculateOverallPerformance(carData);
+            if (!gameState.performanceHistory[team.id]) {
+                 gameState.performanceHistory[team.id] = []; // Ensure array exists
+            }
+            // Avoid pushing duplicate values if stage changes without actual time passing (rare)
+            const lastValue = gameState.performanceHistory[team.id][gameState.performanceHistory[team.id].length - 1];
+            if (gameState.performanceHistory[team.id].length === 0 || performance !== lastValue) {
+                 gameState.performanceHistory[team.id].push(performance);
+                 // console.log(`Team ${team.name}: Performance ${performance.toFixed(1)}`);
+            } else {
+                 // console.log(`Team ${team.name}: Performance unchanged (${performance.toFixed(1)}), not recording duplicate.`);
+            }
+        });
+         // Update chart if the Car Dev tab is active
+        if (document.getElementById('CarDevelopment')?.classList.contains('active-content')) {
+            renderCarComparisonChart();
+        }
+    }
 
     // ==========================================================================
     // SETUP PHASE FUNCTIONS
     // ==========================================================================
     function populateTeamSelect() { const select = document.getElementById('team-select'); if (!select) return; select.innerHTML = '<option value="">-- Select Team --</option>'; teams.forEach(team => { const option = document.createElement('option'); option.value = team.id; option.textContent = team.name; select.appendChild(option); }); }
     function populateDriverSelects() { const select1 = document.getElementById('driver1-select'); const select2 = document.getElementById('driver2-select'); if (!select1 || !select2) return; select1.innerHTML = '<option value="">-- Select Driver 1 --</option>'; select2.innerHTML = '<option value="">-- Select Driver 2 --</option>'; availableDriversPool.forEach(driver => { const option1 = document.createElement('option'); option1.value = driver.id; option1.textContent = `${driver.name} (P:${driver.stats.pace} C:${driver.stats.consistency} E:${driver.stats.experience})`; select1.appendChild(option1); const option2 = document.createElement('option'); option2.value = driver.id; option2.textContent = `${driver.name} (P:${driver.stats.pace} C:${driver.stats.consistency} E:${driver.stats.experience})`; select2.appendChild(option2); }); }
-    function startGame() { const teamSelect = document.getElementById('team-select'); const driver1Select = document.getElementById('driver1-select'); const driver2Select = document.getElementById('driver2-select'); const difficultyRadio = document.querySelector('input[name="difficulty"]:checked'); const errorEl = document.getElementById('setup-error'); errorEl.textContent = ''; const selectedTeamId = teamSelect.value; const selectedDriver1Id = driver1Select.value; const selectedDriver2Id = driver2Select.value; const selectedDifficulty = difficultyRadio.value; if (!selectedTeamId) { errorEl.textContent = 'Please select a team.'; return; } if (!selectedDriver1Id) { errorEl.textContent = 'Please select Driver 1.'; return; } if (!selectedDriver2Id) { errorEl.textContent = 'Please select Driver 2.'; return; } if (selectedDriver1Id === selectedDriver2Id) { errorEl.textContent = 'Please select two different drivers.'; return; } console.log("Starting game with selections:", selectedTeamId, selectedDriver1Id, selectedDriver2Id, selectedDifficulty); const startingBudget = difficultySettings[selectedDifficulty].budget; setupGameData(selectedTeamId, selectedDriver1Id, selectedDriver2Id, startingBudget); assignAIDrivers(selectedTeamId, [selectedDriver1Id, selectedDriver2Id]); document.getElementById('game-setup').classList.add('hidden'); document.querySelector('.main-header').classList.remove('hidden'); document.querySelector('.tabs').classList.remove('hidden'); document.getElementById('main-content').classList.remove('hidden'); calculateInitialSalaries(); teams.forEach(t => calculateTeamStats(t.id)); shuffleAndAssignRaceCalendar(); initializeLeaderboard(); gameState.currentGameStage = 'PreSeason'; recordCarDevelopmentHistory(); // Record initial stats
+    function startGame() { const teamSelect = document.getElementById('team-select'); const driver1Select = document.getElementById('driver1-select'); const driver2Select = document.getElementById('driver2-select'); const difficultyRadio = document.querySelector('input[name="difficulty"]:checked'); const errorEl = document.getElementById('setup-error'); errorEl.textContent = ''; const selectedTeamId = teamSelect.value; const selectedDriver1Id = driver1Select.value; const selectedDriver2Id = driver2Select.value; const selectedDifficulty = difficultyRadio.value; if (!selectedTeamId) { errorEl.textContent = 'Please select a team.'; return; } if (!selectedDriver1Id) { errorEl.textContent = 'Please select Driver 1.'; return; } if (!selectedDriver2Id) { errorEl.textContent = 'Please select Driver 2.'; return; } if (selectedDriver1Id === selectedDriver2Id) { errorEl.textContent = 'Please select two different drivers.'; return; } console.log("Starting game with selections:", selectedTeamId, selectedDriver1Id, selectedDriver2Id, selectedDifficulty); const startingBudget = difficultySettings[selectedDifficulty].budget; setupGameData(selectedTeamId, selectedDriver1Id, selectedDriver2Id, startingBudget); assignAIDrivers(selectedTeamId, [selectedDriver1Id, selectedDriver2Id]); document.getElementById('game-setup').classList.add('hidden'); document.querySelector('.main-header').classList.remove('hidden'); document.querySelector('.tabs').classList.remove('hidden'); document.getElementById('main-content').classList.remove('hidden'); calculateInitialSalaries(); teams.forEach(t => calculateTeamStats(t.id)); shuffleAndAssignRaceCalendar(); initializeLeaderboard(); gameState.currentGameStage = 'PreSeason';
+
+        recordPerformanceHistory(); // <--- ADDED: Record initial state
+
         updateUI(); openTab(null, 'Overview'); addPlayerMessage(`Game started! Managing ${getTeamById(selectedTeamId).name}. Budget: ${formatCurrency(startingBudget)}`, "success"); }
-    function setupGameData(pTeamId, pDriver1Id, pDriver2Id, pBudget) { gameState = { currentYear: START_YEAR, playerTeamId: pTeamId, finances: { budget: pBudget, incomePerRaceBase: 500000, seasonIncome: 0, seasonExpenses: 0, }, currentRaceIndex: 0, currentGameStage: 'Setup', currentWeek: 0, inProgressDevelopment: [], inProgressStaffTraining: [], activeSponsorContracts: [], selectedSponsors: [], playerStrategy: null, raceResultsLog: [], currentMessages: [], raceSpeedMultiplier: 1, driverReplacementInProgress: null, // Added for driver market
-         playerCarDevelopmentHistory: [], // Added for graph
-    }; const driver1 = drivers.find(d => d.id === pDriver1Id); const driver2 = drivers.find(d => d.id === pDriver2Id); if (driver1) driver1.teamId = pTeamId; if (driver2) driver2.teamId = pTeamId; playerCar = createInitialCarData(pTeamId); teams.forEach(t => { if (t.id !== pTeamId) { aiCarData[t.id] = createInitialCarData(t.id); } else { t.staff = createInitialStaff(t.id); } }); season.year = gameState.currentYear; }
+    function setupGameData(pTeamId, pDriver1Id, pDriver2Id, pBudget) {
+        gameState = {
+            currentYear: START_YEAR,
+            playerTeamId: pTeamId,
+            finances: {
+                budget: pBudget,
+                incomePerRaceBase: 500000, // Example base income
+                seasonIncome: 0,
+                seasonExpenses: 0,
+            },
+            currentRaceIndex: 0, // 0 = first race
+            currentGameStage: 'Setup', // e.g., PreSeason, StartOfWeek, Qualifying, PreRace, Race, PostRace, EndOfSeason
+            currentWeek: 0, // Tracks weeks within the season (or stages)
+            inProgressDevelopment: [], // { upgradeId, targetCompletionWeek, targetCompletionStage, successChance }
+            inProgressStaffTraining: [], // { staffId, trainingId, targetCompletionWeek, targetCompletionStage, successChance, effect }
+            activeSponsorContracts: [], // Stores confirmed sponsor deals for the season
+            selectedSponsors: [], // Temp storage during PreSeason selection
+            playerStrategy: null, // { name, stints: [{compound, targetLap}, ...] }
+            raceResultsLog: [], // [{ raceId, quali: [...], race: [...] }]
+            currentMessages: [], // For player feedback/alerts
+            raceSpeedMultiplier: 1,
+            driverReplacementInProgress: null, // { outgoingDriverId, otherPlayerDriverId }
+            performanceHistory: {}, // <--- ADDED: To store historical data { teamId: [value1, value2, ...] }
+        };
+
+        const driver1 = drivers.find(d => d.id === pDriver1Id); const driver2 = drivers.find(d => d.id === pDriver2Id); if (driver1) driver1.teamId = pTeamId; if (driver2) driver2.teamId = pTeamId; playerCar = createInitialCarData(pTeamId); teams.forEach(t => { if (t.id !== pTeamId) { aiCarData[t.id] = createInitialCarData(t.id); } else { t.staff = createInitialStaff(t.id); } });
+
+        // Initialize performance history arrays
+        teams.forEach(t => {
+             gameState.performanceHistory[t.id] = []; // Initialize empty array for each team
+        });
+
+        season.year = gameState.currentYear; }
     function assignAIDrivers(playerTeamId, playerDriverIds) { const aiTeams = teams.filter(t => t.id !== playerTeamId); let remainingDrivers = drivers.filter(d => !playerDriverIds.includes(d.id)); // Sort remaining drivers roughly by pace descending to assign better drivers to better teams
         remainingDrivers.sort((a, b) => b.stats.pace - a.stats.pace); const sortedAITeams = [...aiTeams].sort((a,b) => b.reputation - a.reputation); sortedAITeams.forEach(team => { team.staff = createInitialStaff(team.id); if (remainingDrivers.length < 2) { console.error(`Not enough drivers to fill team ${team.name}`); return; } const driver1 = remainingDrivers.shift(); const driver2 = remainingDrivers.shift(); driver1.teamId = team.id; driver2.teamId = team.id; console.log(`Assigned ${driver1.name} and ${driver2.name} to AI team ${team.name}`); }); }
     function calculateInitialSalaries() { drivers.forEach(d => { if (d.teamId) { const team = getTeamById(d.teamId); d.contract.salaryPerRace = calculateSalaryPerRace(d, team?.reputation || 70); } else { d.contract.salaryPerRace = 0; // Free agents have no salary until hired
@@ -478,7 +541,8 @@
     // ==========================================================================
     function openTab(evt, tabName) { document.querySelectorAll('.tab-content').forEach(tc => { tc.style.display = 'none'; tc.classList.remove('active-content'); }); document.querySelectorAll('.tab-button').forEach(tb => tb.classList.remove('active')); const tabToShow = document.getElementById(tabName); if (tabToShow) { tabToShow.style.display = 'block'; tabToShow.classList.add('active-content'); } else { console.warn(`Tab content not found for ID: ${tabName}`); const overviewTab = document.getElementById('Overview'); if (overviewTab) { overviewTab.style.display = 'block'; overviewTab.classList.add('active-content'); } } const clickedButton = evt?.currentTarget; const targetButton = clickedButton || document.querySelector(`.tab-button[onclick*="'${tabName}'"]`); if (targetButton) { targetButton.classList.add('active'); } else { document.querySelector('.tab-button[onclick*="\'Overview\'"]')?.classList.add('active'); } // Update content *after* setting active tab
         // If switching *away* from Drivers tab during replacement, cancel it
-        if (tabName !== 'Drivers' && gameState.driverReplacementInProgress) { cancelDriverReplace(); } switch(tabName) { case 'Leaderboard': displayLeaderboard(); break; case 'CarDevelopment': displayCarDevelopment(); break; case 'Infrastructure': displayInfrastructure(); break; case 'Finances': displayFinances(); break; case 'Sponsors': displaySponsors(); break; case 'Staff': displayStaff(); break; case 'Drivers': displayDrivers(); break; case 'Season': displaySeasonCalendar(); break; case 'Overview': updateOverviewTab(); break; case 'RaceSim': displayRaceSim(); break; default: updateOverviewTab(); } }
+        if (tabName !== 'Drivers' && gameState.driverReplacementInProgress) { cancelDriverReplace(); } switch(tabName) { case 'Leaderboard': displayLeaderboard(); break; case 'CarDevelopment': displayCarDevelopment(); break; // This will now call the updated chart render
+            case 'Infrastructure': displayInfrastructure(); break; case 'Finances': displayFinances(); break; case 'Sponsors': displaySponsors(); break; case 'Staff': displayStaff(); break; case 'Drivers': displayDrivers(); break; case 'Season': displaySeasonCalendar(); break; case 'Overview': updateOverviewTab(); break; case 'RaceSim': displayRaceSim(); break; default: updateOverviewTab(); } }
     function updateHeader() { const playerTeam = getTeamById(gameState.playerTeamId); const playerTeamHeaderEl = document.getElementById('player-team-header'); if (playerTeamHeaderEl) playerTeamHeaderEl.textContent = `${playerTeam?.name || 'Team'} - ${gameState.currentYear}`; const currentYearHeaderEl = document.getElementById('current-year-header'); if (currentYearHeaderEl) currentYearHeaderEl.textContent = gameState.currentYear; const currentStageHeaderEl = document.getElementById('current-stage-header'); if (currentStageHeaderEl) currentStageHeaderEl.textContent = gameState.currentGameStage; const currentWeekHeaderEl = document.getElementById('current-week-header'); if (currentWeekHeaderEl) currentWeekHeaderEl.textContent = gameState.currentWeek; const budgetHeaderEl = document.getElementById('budget-header'); if (budgetHeaderEl) budgetHeaderEl.textContent = formatCurrency(gameState.finances?.budget || 0); const nextRaceIndex = (gameState.currentGameStage === 'EndOfSeason' || gameState.currentGameStage === 'PreSeason') ? 0 : gameState.currentRaceIndex; const nextRace = season?.races?.[nextRaceIndex]; const nextRaceHeaderEl = document.getElementById('next-race-header'); if (nextRaceHeaderEl) nextRaceHeaderEl.textContent = nextRace ? `#${nextRace.calendarId} ${nextRace.name}` : 'Season Over'; const advanceTimeBtnEl = document.getElementById('advance-time-btn'); if (advanceTimeBtnEl) { const requiresStrategy = (gameState.currentGameStage === 'PreRace' && !gameState.playerStrategy); const requiresSponsors = (gameState.currentGameStage === 'PreSeason' && (!gameState.activeSponsorContracts || gameState.activeSponsorContracts.length === 0)); advanceTimeBtnEl.disabled = gameState.currentGameStage === 'Race' || requiresStrategy || requiresSponsors || gameState.driverReplacementInProgress; // Disable if replacing driver
             switch (gameState.currentGameStage) { case 'PreSeason': advanceTimeBtnEl.textContent = requiresSponsors ? "Select Sponsors!" : (gameState.driverReplacementInProgress ? "Finalize Driver!" : "Start Season"); break; case 'StartOfWeek': advanceTimeBtnEl.textContent = "Run Qualifying"; break; case 'Qualifying': advanceTimeBtnEl.textContent = "Prepare for Race"; break; case 'PreRace': advanceTimeBtnEl.textContent = requiresStrategy ? "Select Strategy!" : "Start Race"; break; case 'Race': advanceTimeBtnEl.textContent = "Race in Progress..."; break; case 'PostRace': advanceTimeBtnEl.textContent = "End Weekend"; break; case 'EndOfSeason': advanceTimeBtnEl.textContent = "Start Pre-Season"; break; default: advanceTimeBtnEl.textContent = "Advance Time"; } } }
     function updateOverviewTab() { const playerTeam = getTeamById(gameState.playerTeamId); const repEl = document.getElementById('team-reputation-overview'); if(repEl && playerTeam) repEl.textContent = playerTeam.reputation?.toFixed(1) || 'N/A'; const budgetEl = document.getElementById('budget-overview'); if (budgetEl) budgetEl.textContent = formatCurrency(gameState.finances.budget); const spendEl = document.getElementById('spend-overview'); if (spendEl) spendEl.textContent = formatCurrency(gameState.finances.seasonExpenses); const incomeEl = document.getElementById('income-overview'); if (incomeEl) { const projIncome = gameState.finances.incomePerRaceBase + (gameState.activeSponsorContracts?.reduce((sum, c) => sum + c.basePayoutPerRace, 0) || 0); incomeEl.textContent = formatCurrency(projIncome); } const teamDrivers = drivers.filter(d => d.teamId === gameState.playerTeamId); const d1NameEl = document.getElementById('overview-driver1-name'); const d1MoraleEl = document.getElementById('overview-driver1-morale'); if (d1NameEl && d1MoraleEl && teamDrivers.length > 0) { d1NameEl.textContent = teamDrivers[0].name; d1MoraleEl.textContent = teamDrivers[0].morale; } else if (d1NameEl) { d1NameEl.textContent = '[N/A]'; d1MoraleEl.textContent = '[N/A]'; } const d2NameEl = document.getElementById('overview-driver2-name'); const d2MoraleEl = document.getElementById('overview-driver2-morale'); if (d2NameEl && d2MoraleEl && teamDrivers.length > 1) { d2NameEl.textContent = teamDrivers[1].name; d2MoraleEl.textContent = teamDrivers[1].morale; } else if (d2NameEl) { d2NameEl.textContent = '[N/A]'; d2MoraleEl.textContent = '[N/A]'; } const devList = document.getElementById('active-dev-overview'); if(devList) { devList.innerHTML = ''; if (gameState.inProgressDevelopment?.length > 0) { gameState.inProgressDevelopment.forEach(dev => { const upgrade = findUpgradeByIdRecursive(dev.upgradeId); devList.innerHTML += `<li>${upgrade?.name || 'Unknown Upgrade'} - ETA: Wk ${dev.targetCompletionWeek} ${dev.targetCompletionStage}</li>`; }); } else { devList.innerHTML = '<li>No active developments.</li>'; } } const trainList = document.getElementById('active-train-overview'); if(trainList) { trainList.innerHTML = ''; if (gameState.inProgressStaffTraining?.length > 0) { gameState.inProgressStaffTraining.forEach(train => { const staff = getStaffById(gameState.playerTeamId, train.staffId); trainList.innerHTML += `<li>${staff?.name || 'Unknown Staff'} (${train.trainingName}) - ETA: Wk ${train.targetCompletionWeek} ${train.targetCompletionStage}</li>`; }); } else { trainList.innerHTML = '<li>No active staff training.</li>'; } } const nextRaceFocusEl = document.getElementById('next-race-focus'); if (nextRaceFocusEl) { const nextRace = season?.races?.[gameState.currentRaceIndex]; let focus = "Balanced"; if (nextRace) { if (nextRace.aeroDep > 0.7) focus = "High Aero"; else if (nextRace.engineDep > 0.7) focus = "High Engine Power"; else if (nextRace.chassisDep > 0.7) focus = "Chassis Performance"; else if (nextRace.tyreWearRate > 1.1) focus = "Tyre Management"; } nextRaceFocusEl.textContent = focus; } displayAlerts(); }
@@ -600,6 +664,7 @@
     function getStaffEffectDescription(staff) { if (!staff.statEffect) return "No direct effect"; let effects = []; if (staff.statEffect.RDSuccessRate) effects.push(`+${(staff.statEffect.RDSuccessRate * (staff.level || 1) * 0.1).toFixed(1)}% R&D`); if (staff.statEffect.AeroDevEffectiveness) effects.push(`+${(staff.statEffect.AeroDevEffectiveness * (staff.level || 1) * 0.1).toFixed(1)}% Aero`); if (staff.statEffect.EngineDevEffectiveness) effects.push(`+${(staff.statEffect.EngineDevEffectiveness * (staff.level || 1) * 0.1).toFixed(1)}% Eng`); if (staff.statEffect.ChassisDevEffectiveness) effects.push(`+${(staff.statEffect.ChassisDevEffectiveness * (staff.level || 1) * 0.1).toFixed(1)}% Cha`); if (staff.statEffect.ReliabilityDevEffectiveness) effects.push(`+${(staff.statEffect.ReliabilityDevEffectiveness * (staff.level || 1) * 0.1).toFixed(1)}% Relia`); if (staff.statEffect.PitStopTime) effects.push(`${(staff.statEffect.PitStopTime * ((staff.level || 1) / 5.0)).toFixed(2)}s Pit`); return effects.join(', ') || "General Support"; }
     function showStaffDetails(staffId) { const staff = getStaffById(gameState.playerTeamId, staffId); if (!staff) return; document.getElementById('staff-detail-placeholder')?.classList.add('hidden'); const detailContent = document.getElementById('staff-detail-content'); if (!detailContent) return; detailContent.classList.remove('hidden'); document.getElementById('staff-detail-name').textContent = staff.name; document.getElementById('staff-detail-role').textContent = staff.role; document.getElementById('staff-detail-level').textContent = staff.level; document.getElementById('staff-detail-effects').textContent = getStaffEffectDescription(staff); const trainingList = document.getElementById('staff-training-list'); if (!trainingList) return; trainingList.innerHTML = ''; const availableTraining = staffTrainingOptions[staff.role] || []; const isCurrentlyTraining = gameState.inProgressStaffTraining.some(t => t.staffId === staff.id); let canTrain = false; if (isCurrentlyTraining) { trainingList.innerHTML = '<li>Staff member is currently training.</li>'; } else { availableTraining.forEach(trainOpt => { if (staff.level >= trainOpt.levelReq) { const canAfford = gameState.finances.budget >= trainOpt.cost; const li = document.createElement('li'); li.style.borderBottom = '1px dotted var(--tab-border)'; li.style.padding = '8px 0'; li.style.overflow = 'hidden'; li.innerHTML = `<div style="float: left; width: 70%;"><strong>${trainOpt.name}</strong> (Lvl ${trainOpt.levelReq}+) <br><small>Cost: ${formatCurrency(trainOpt.cost)} | Dur: ${trainOpt.durationWeeks} Wks | Chance: ${Math.round(trainOpt.successChance * 100)}% | Effect: ${getTrainingEffectDesc(trainOpt.effect)}</small></div><button class="btn ${canAfford ? 'btn-positive' : 'btn-secondary'} btn-sm" style="float: right;" ${!canAfford ? 'disabled' : ''} onclick="startStaffTraining('${staff.id}', '${trainOpt.id}')">${canAfford ? 'Start' : 'Funds'}</button>`; trainingList.appendChild(li); canTrain = true; } }); if (!canTrain && !isCurrentlyTraining) { trainingList.innerHTML = '<li>No suitable training available for current level.</li>'; } } }
     function getTrainingEffectDesc(effect) { if (!effect) return "None"; let effects = []; if (effect.RDSuccessRate) effects.push(`+${effect.RDSuccessRate}% R&D`); if (effect.AeroDevEffectiveness) effects.push(`+${effect.AeroDevEffectiveness}% Aero`); if (effect.EngineDevEffectiveness) effects.push(`+${effect.EngineDevEffectiveness}% Eng`); if (effect.ChassisDevEffectiveness) effects.push(`+${effect.ChassisDevEffectiveness}% Cha`); if (effect.ReliabilityDevEffectiveness) effects.push(`+${effect.ReliabilityDevEffectiveness}% Relia`); if (effect.PitStopTime) effects.push(`${effect.PitStopTime.toFixed(2)}s Pit`); return effects.join(', ') || "Skill"; }
+
     // --- MODIFIED: displayCarDevelopment to include comparison and chart ---
     function displayCarDevelopment() {
         if (!playerCar || !playerCar.baseStats) {
@@ -661,10 +726,8 @@
             }
         }
 
-
         // --- Update Development Chart ---
-        renderDevelopmentGraph(); // Render or update the graph
-        document.getElementById('dev-chart-year').textContent = gameState.currentYear;
+        renderCarComparisonChart(); // Calls the NEW line chart function
 
         // --- Update Upgrade Cards (Check Unlock Status) ---
         const playerInfra = infrastructure;
@@ -735,140 +798,179 @@
         }
     }
 
-    // --- ADDED: Function to Render Development Chart ---
-    function renderDevelopmentGraph() {
-        const ctx = document.getElementById('developmentChart')?.getContext('2d');
+    // --- MODIFIED: Replaced Radar chart with Line chart for performance over time ---
+    function renderCarComparisonChart() {
+        const ctx = document.getElementById('carComparisonChart')?.getContext('2d');
         if (!ctx) {
-            console.error("Chart canvas not found!");
+            console.error("Comparison Chart canvas not found!");
             return;
         }
         if (typeof Chart === 'undefined') {
              console.error("Chart.js library not loaded!");
-             // Optionally display a message to the user in the chart container
-             const container = document.getElementById('development-chart-container');
+             const container = document.getElementById('car-comparison-chart-container');
              if(container) container.innerHTML = "<p class='text-negative'>Chart library failed to load. Please check your internet connection.</p>";
              return;
         }
 
-        const history = gameState.playerCarDevelopmentHistory?.filter(h => h.year === gameState.currentYear) || [];
+        const datasets = [];
+        let historyLength = 0;
+        const playerTeamId = gameState.playerTeamId;
 
-        if (history.length < 2) { // Need at least 2 data points to draw a line
-            if (developmentChartInstance) {
-                developmentChartInstance.destroy();
-                developmentChartInstance = null;
+        // Check if history exists and determine length
+        if (gameState.performanceHistory && gameState.performanceHistory[playerTeamId] && gameState.performanceHistory[playerTeamId].length > 0) {
+            historyLength = gameState.performanceHistory[playerTeamId].length;
+        } else {
+            console.log("No performance history available yet.");
+             // Optionally clear the chart or display a message
+            if (carComparisonChartInstance) {
+                carComparisonChartInstance.destroy();
+                carComparisonChartInstance = null;
             }
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear canvas
-             ctx.fillStyle = 'var(--secondary-color)';
-             ctx.textAlign = 'center';
-             ctx.font = '14px var(--font-family)';
-             ctx.fillText('Not enough data to display development graph yet.', ctx.canvas.width / 2, ctx.canvas.height / 2);
-            return;
+            ctx.fillStyle = 'var(--secondary-color)';
+            ctx.textAlign = 'center';
+            ctx.font = '14px ' + getComputedStyle(document.body).fontFamily; // Use body font
+            ctx.fillText('Performance history will be charted after the first race.', ctx.canvas.width / 2, ctx.canvas.height / 2);
+            return; // Exit if no data
         }
 
-        const labels = history.map(h => `Wk ${h.week}`); // Use Week as label
-        const aeroData = history.map(h => h.stats.aero);
-        const engineData = history.map(h => h.stats.engine);
-        const chassisData = history.map(h => h.stats.chassis);
-        const reliabilityData = history.map(h => h.stats.reliability);
+        // Generate Labels for X-axis (e.g., "Start", "R1", "R2", ...)
+        const chartLabels = ["Start"]; // First point is pre-season
+        for (let i = 1; i < historyLength; i++) {
+            // Try to find the race name corresponding to this history point
+            // This assumes history points align with race indices
+            const race = season?.races?.[i - 1]; // Race index is history index - 1
+            chartLabels.push(race ? `R${race.calendarId}` : `Post R${i}`); // Use race ID or just index
+        }
 
-        const chartData = {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Aero',
-                    data: aeroData,
-                    borderColor: 'rgba(75, 192, 192, 1)', // Teal
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    tension: 0.1,
-                    yAxisID: 'y', // Primary axis (0-100)
-                    pointRadius: 2,
-                    pointHoverRadius: 4,
-                },
-                {
-                    label: 'Engine',
-                    data: engineData,
-                    borderColor: 'rgba(255, 99, 132, 1)', // Red
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    tension: 0.1,
-                     yAxisID: 'y',
-                     pointRadius: 2,
-                     pointHoverRadius: 4,
-                },
-                {
-                    label: 'Chassis',
-                    data: chassisData,
-                    borderColor: 'rgba(54, 162, 235, 1)', // Blue
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    tension: 0.1,
-                     yAxisID: 'y',
-                     pointRadius: 2,
-                     pointHoverRadius: 4,
-                },
-                {
-                    label: 'Reliability (%)',
-                    data: reliabilityData,
-                    borderColor: 'rgba(255, 206, 86, 1)', // Yellow
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    tension: 0.1,
-                    yAxisID: 'y', // Use same axis for simplicity, though it's %
-                    pointRadius: 2,
-                    pointHoverRadius: 4,
-                }
-            ]
-        };
+
+        // Prepare datasets for each team
+        teams.forEach(team => {
+            const teamHistory = gameState.performanceHistory[team.id];
+            if (!teamHistory || teamHistory.length === 0) return; // Skip teams with no data
+
+            // Ensure data length matches label length (pad with last known value if history is shorter)
+            const dataPoints = teamHistory.slice(0, historyLength);
+            const lastValue = dataPoints[dataPoints.length - 1];
+            while (dataPoints.length < historyLength) {
+                dataPoints.push(lastValue); // Pad with last known value
+            }
+
+            datasets.push({
+                label: team.name + (team.id === playerTeamId ? " (You)" : ""),
+                data: dataPoints,
+                borderColor: team.color || '#ffffff',
+                backgroundColor: hexToRgba(team.color || '#ffffff', 0.1), // Subtle background fill
+                fill: false, // Can set to true if desired
+                tension: 0.1, // Slightly smooth the lines
+                borderWidth: (team.id === playerTeamId ? 2.5 : 1.5), // Player line thicker
+                pointRadius: (team.id === playerTeamId ? 3 : 2),
+                pointHoverRadius: (team.id === playerTeamId ? 5 : 4),
+                order: (team.id === playerTeamId ? 1 : 2) // Draw player on top
+            });
+        });
 
         // Destroy previous chart instance if it exists
-        if (developmentChartInstance) {
-            developmentChartInstance.destroy();
+        if (carComparisonChartInstance) {
+            carComparisonChartInstance.destroy();
+            carComparisonChartInstance = null; // Ensure it's nullified
         }
 
-        // Chart.js Defaults Override for Dark Mode
+        // Chart.js Defaults Override for Dark Mode (already present is fine)
         Chart.defaults.color = 'var(--text-color)';
         Chart.defaults.borderColor = 'var(--tab-border)';
 
         // Create new chart instance
-        developmentChartInstance = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        title: { display: true, text: 'Week', color: 'var(--text-color)' },
-                        ticks: { color: 'var(--secondary-color)' },
-                        grid: { color: 'var(--tab-border)' }
+        try {
+             carComparisonChartInstance = new Chart(ctx, {
+                type: 'line', // Changed chart type to line
+                data: {
+                    labels: chartLabels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { // Y-axis configuration (Performance Rating)
+                            beginAtZero: false, // Don't necessarily start at 0
+                            min: 40, // Adjust min based on expected performance range
+                            max: 100, // Adjust max based on expected performance range
+                            title: {
+                                display: true,
+                                text: 'Overall Performance Rating',
+                                color: 'var(--heading-color)'
+                            },
+                            grid: { color: 'var(--tab-border)' },
+                            ticks: { color: 'var(--secondary-color)' }
+                        },
+                        x: { // X-axis configuration (Time/Season Progression)
+                            title: {
+                                display: true,
+                                text: 'Season Progression (Post-Race)',
+                                color: 'var(--heading-color)'
+                            },
+                            grid: { color: 'var(--tab-border)' },
+                            ticks: { color: 'var(--secondary-color)' }
+                        }
                     },
-                    y: { // Primary Y Axis for Aero, Engine, Chassis, Reliability
-                        title: { display: true, text: 'Performance / Reliability (%)', color: 'var(--text-color)' },
-                        min: 40, // Start Y axis closer to typical values
-                        max: 100, // Or slightly higher if upgrades allow > 100
-                        ticks: { color: 'var(--secondary-color)', stepSize: 10 }, // Adjust step size
-                        grid: { color: 'var(--tab-border)' }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: { color: 'var(--text-color)' }
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                 color: 'var(--text-color)',
+                                 boxWidth: 15,
+                                 padding: 10
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index', // Show tooltips for all lines at the same index
+                            intersect: false, // Show even when not directly hovering over point
+                            bodyColor: 'var(--text-color)',
+                            titleColor: 'var(--text-color)',
+                            backgroundColor: 'var(--header-bg)',
+                            borderColor: 'var(--card-border)',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true,
+                            callbacks: { // Format tooltip
+                                 label: function(context) {
+                                     let label = context.dataset.label || '';
+                                     if (label) {
+                                         label += ': ';
+                                     }
+                                     if (context.parsed.y !== null) {
+                                         label += context.parsed.y.toFixed(1); // Show performance value
+                                     }
+                                     return label;
+                                 }
+                            }
+                        }
                     },
-                    tooltip: {
-                        bodyColor: 'var(--text-color)',
-                        titleColor: 'var(--text-color)',
-                        backgroundColor: 'var(--header-bg)',
-                        borderColor: 'var(--card-border)',
-                        borderWidth: 1,
-                        padding: 10,
-                        displayColors: false, // Hide the little color boxes in tooltip
+                    elements: {
+                        line: {
+                            // borderWidth: 2 // Default line thickness (overridden in dataset)
+                        }
+                    },
+                    animation: {
+                         duration: 250 // Faster animation
                     }
-                },
-                interaction: { // Improve tooltip interaction
-                   intersect: false,
-                   mode: 'index',
-                },
+                }
+            });
+        } catch(e) {
+            console.error("Error creating Chart.js instance:", e);
+            if (carComparisonChartInstance) { // Attempt to cleanup if partially created
+                 carComparisonChartInstance.destroy();
+                 carComparisonChartInstance = null;
             }
-        });
+            // Display error message on canvas
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.fillStyle = 'var(--negative-color)';
+            ctx.textAlign = 'center';
+            ctx.font = '14px ' + getComputedStyle(document.body).fontFamily;
+            ctx.fillText('Error creating performance chart. Check console.', ctx.canvas.width / 2, ctx.canvas.height / 2);
+        }
     }
-
 
     function displayInfrastructure() { const container = document.getElementById('infrastructure-list'); if (!container) return; container.innerHTML = ''; for (const key in infrastructure) { const facility = infrastructure[key]; const card = document.createElement('div'); card.className = 'info-card infra-card'; const currentLevel = facility.level; const maxLevel = facility.maxLevel; const isMaxLevel = currentLevel >= maxLevel; const upgradeCost = isMaxLevel ? 0 : facility.costPerLevel[currentLevel]; const canAfford = gameState.finances.budget >= upgradeCost; let buttonHTML = ''; if (isMaxLevel) { buttonHTML = `<button class="btn btn-secondary disabled" disabled>Max Level</button>`; } else if (!canAfford) { buttonHTML = `<button class="btn btn-secondary disabled" disabled>Cannot Afford</button>`; } else { buttonHTML = `<button class="btn btn-primary" onclick="investInfrastructure('${key}')">Invest</button>`; } card.innerHTML = `<h4>${facility.name}</h4><p>Level: <strong>${currentLevel} / ${maxLevel}</strong></p><p><em>${facility.benefits}</em></p>${!isMaxLevel ? `<p>Cost to upgrade to Level ${currentLevel + 1}: <span class="upgrade-cost">${formatCurrency(upgradeCost)}</span></p>` : ''}${buttonHTML}`; container.appendChild(card); } }
     function displayFinances() { const finBudgetEl = document.getElementById('finance-budget'); const finSeasonIncomeEl = document.getElementById('finance-season-income'); const finSeasonExpensesEl = document.getElementById('finance-season-expenses'); const finProjBalanceEl = document.getElementById('finance-projected-balance'); const incomeListEl = document.getElementById('income-breakdown'); const expenseListEl = document.getElementById('expense-breakdown'); const historyTbodyEl = document.getElementById('transaction-history-tbody'); if (finBudgetEl) finBudgetEl.textContent = formatCurrency(gameState.finances.budget); if (finSeasonIncomeEl) finSeasonIncomeEl.textContent = formatCurrency(gameState.finances.seasonIncome); if (finSeasonExpensesEl) finSeasonExpensesEl.textContent = formatCurrency(gameState.finances.seasonExpenses); if (finProjBalanceEl && season.races) { const racesRemaining = Math.max(0, RACES_PER_SEASON - gameState.currentRaceIndex); const estimatedBaseIncome = gameState.finances.incomePerRaceBase * racesRemaining; const estimatedSponsorBase = (gameState.activeSponsorContracts?.reduce((sum, c) => sum + c.basePayoutPerRace, 0) || 0) * racesRemaining; // Estimate future salary costs
@@ -1133,22 +1235,23 @@
         if (!stageChanged) return;
         console.log(`Advancing Time from ${previousStage} (Wk ${gameState.currentWeek}) to ${nextStage} (Wk ${nextWeek})`);
 
-        // --- ADDED: Record Car Stats at Start of Week ---
-        if (nextStage === 'StartOfWeek' || (previousStage === 'PreSeason' && nextStage === 'StartOfWeek')) {
-             recordCarDevelopmentHistory();
+        // --- Process completed items BEFORE updating state ---
+        try {
+            processCompletedDevelopment(nextWeek, nextStage);
+            processCompletedStaffTraining(nextWeek, nextStage);
+        } catch (error) {
+            console.error("Error processing completed tasks:", error);
+            addPlayerMessage("Error processing development/training. Check console.", "error");
         }
 
-        try { processCompletedDevelopment(nextWeek, nextStage); processCompletedStaffTraining(nextWeek, nextStage); }
-        catch (error) { console.error("Error processing completed tasks:", error); addPlayerMessage("Error processing development/training. Check console.", "error"); }
-
-        // Update core state variables
+        // --- Update core state variables ---
         gameState.currentWeek = nextWeek;
         gameState.currentRaceIndex = nextRaceIndex;
         if (gameState.currentYear !== nextYear) { handleYearChange(); }
         gameState.currentGameStage = nextStage; // Update to the new stage *before* running its actions
 
+        // --- Execute actions for the *new* stage ---
         try {
-            // Actions for the *new* stage
             switch (gameState.currentGameStage) {
                 case 'StartOfWeek': updateSponsorObjectiveStatus(true); runAIActions(); break;
                 case 'Qualifying':
@@ -1167,35 +1270,47 @@
                     // Reset leaderboard happens in handleYearChange if year increments
                     // If it's the *first* PreSeason, leaderboard is already initialized
                     // shuffleAndAssignRaceCalendar() also happens in handleYearChange
-                    recordCarDevelopmentHistory(); // Record stats at start of new PreSeason
                     break;
             }
-             // Actions for LEAVING the PREVIOUS stage
-             if (previousStage === 'PostRace') {
-                 deductSalaries();
-                 gameState.playerStrategy = null; // Reset strategy after the weekend
-             }
         } catch (error) { console.error(`Error during ${gameState.currentGameStage} stage actions:`, error); addPlayerMessage(`Error during ${gameState.currentGameStage} stage. Check console.`, "error"); }
+
+        // --- Execute actions when LEAVING the PREVIOUS stage ---
+        if (previousStage === 'PostRace') {
+             deductSalaries();
+             gameState.playerStrategy = null; // Reset strategy after the weekend
+             recordPerformanceHistory(); // <--- ADDED: Record performance after race weekend actions
+        }
+         // ... (other actions for leaving specific stages) ...
+
 
         updateUI(); // Update UI based on the *new* state
 
-        // *** CHANGE: Navigate to Overview AFTER processing PostRace -> StartOfWeek/EndOfSeason ***
+        // --- Navigation Logic ---
+        // ... (existing navigation logic, e.g., go to RaceSim after Quali) ...
         if (previousStage === 'PostRace') {
              console.log("Transitioned from PostRace, switching to Overview tab.");
              openTab(null, 'Overview');
         }
     }
+
     function handleYearChange() { // Reset finances
         gameState.finances.seasonIncome = 0; gameState.finances.seasonExpenses = 0; transactionLog = []; // Reset race/sponsor logs
         gameState.raceResultsLog = []; gameState.activeSponsorContracts = []; // Increment year, reset indices
         gameState.currentYear++; season.year = gameState.currentYear; gameState.currentRaceIndex = 0; gameState.currentWeek = 0; // Reset leaderboard
-        leaderboard.drivers.forEach(d => d.points = 0); leaderboard.teams.forEach(t => t.points = 0); addPlayerMessage(`Welcome to the ${gameState.currentYear} season!`, "success"); // Car degradation/reset
+        leaderboard.drivers.forEach(d => d.points = 0); leaderboard.teams.forEach(t => t.points = 0);
+
+        // Reset performance history
+        gameState.performanceHistory = {}; // Clear history object
+        teams.forEach(t => { gameState.performanceHistory[t.id] = []; }); // Reinitialize empty arrays
+
+        addPlayerMessage(`Welcome to the ${gameState.currentYear} season!`, "success"); // Car degradation/reset
         playerCar.baseStats.aero = Math.max(40, playerCar.baseStats.aero - 5); playerCar.baseStats.engine = Math.max(40, playerCar.baseStats.engine - 3); playerCar.baseStats.chassis = Math.max(40, playerCar.baseStats.chassis - 4); playerCar.baseStats.reliability = Math.max(70, playerCar.baseStats.reliability - 10); Object.values(aiCarData).forEach(car => { car.baseStats.aero = Math.max(40, car.baseStats.aero - 5); car.baseStats.engine = Math.max(40, car.baseStats.engine - 3); car.baseStats.chassis = Math.max(40, car.baseStats.chassis - 4); car.baseStats.reliability = Math.max(70, car.baseStats.reliability - 10); car.appliedUpgrades = []; }); playerCar.appliedUpgrades = []; // Reset active development/training
-        gameState.inProgressDevelopment = []; gameState.inProgressStaffTraining = []; // New calendar
+        gameState.inProgressDevelopment = []; gameState.inProgressStaffTraining = [];
+
+        recordPerformanceHistory(); // <--- ADDED: Record state at start of new year/pre-season
+
+        // New calendar
         shuffleAndAssignRaceCalendar();
-        // Reset development history for the new year
-        gameState.playerCarDevelopmentHistory = [];
-        recordCarDevelopmentHistory(); // Record stats for the start of the new year
     }
 
     // ==========================================================================
@@ -1206,8 +1321,7 @@
     function calculateDevelopmentDuration(upgrade) { let weeks = upgrade.durationWeeks; const factory = infrastructure.factory; if (factory && factory.benefits.includes("Reduces upgrade *duration*")) { const reductionPerLevel = 0.03; weeks *= Math.max(0.5, 1.0 - ((factory.level - 1) * reductionPerLevel)); } return Math.max(1, Math.round(weeks)); }
     function calculateSuccessChance(baseChance) { let chance = baseChance; const techDir = getTeamById(gameState.playerTeamId)?.staff.find(s => s.role === 'Technical Director'); if(techDir && techDir.statEffect?.RDSuccessRate) { chance += (techDir.statEffect.RDSuccessRate * techDir.level * 0.001); } return Math.min(0.99, Math.max(0.10, chance)); }
     function startDevelopment(upgradeId) { const upgrade = findUpgradeByIdRecursive(upgradeId); if (!upgrade) { addPlayerMessage(`Upgrade [${upgradeId}] not found.`, "error"); return; } if (!upgrade.unlocked){ addPlayerMessage(`Cannot start locked development: ${upgrade.name}.`, "warning"); return; } if (gameState.inProgressDevelopment.some(d => d.upgradeId === upgradeId)){ addPlayerMessage(`${upgrade.name} is already in development.`, "warning"); return; } if (playerCar.appliedUpgrades.includes(upgradeId)){ addPlayerMessage(`${upgrade.name} has already been applied.`, "warning"); return; } const cost = calculateUpgradeCost(upgrade); if (gameState.finances.budget < cost) { addPlayerMessage(`Insufficient funds to develop ${upgrade.name}. Need ${formatCurrency(cost)}.`, "warning"); return; } gameState.finances.budget -= cost; gameState.finances.seasonExpenses += cost; logTransaction(`Start R&D: ${upgrade.name}`, -cost, gameState.finances.budget); const durationWeeks = calculateDevelopmentDuration(upgrade); const completionTime = calculateCompletionTime(gameState.currentWeek, gameState.currentGameStage, durationWeeks, 0); const successChance = calculateSuccessChance(upgrade.baseSuccessChance); gameState.inProgressDevelopment.push({ upgradeId: upgradeId, name: upgrade.name, targetCompletionWeek: completionTime.week, targetCompletionStage: completionTime.stage, successChance: successChance, }); addPlayerMessage(`Started development: ${upgrade.name}. ETA: Wk ${completionTime.week}`, "success"); updateUI(); }
-    function processCompletedDevelopment(currentWeek, currentStage) { const completed = []; gameState.inProgressDevelopment = gameState.inProgressDevelopment.filter(dev => { if (isTimeReached(currentWeek, currentStage, dev.targetCompletionWeek, dev.targetCompletionStage)) { completed.push(dev); return false; } return true; }); let statsChanged = false; completed.forEach(dev => { const upgrade = findUpgradeByIdRecursive(dev.upgradeId); if (!upgrade) { addPlayerMessage(`Completed development data mismatch for ID ${dev.upgradeId}.`, "error"); return; } const success = Math.random() < dev.successChance; if (success) { addPlayerMessage(`Development SUCCESS: ${upgrade.name}! Performance improved.`, "success"); applyUpgradeEffect(playerCar, upgrade); playerCar.appliedUpgrades.push(dev.upgradeId); statsChanged = true; } else { addPlayerMessage(`Development FAILED: ${upgrade.name}! Resources wasted.`, "error"); } }); if (statsChanged) { calculateTeamStats(gameState.playerTeamId); recordCarDevelopmentHistory(); // Record stats after successful development
-        } if (completed.length > 0) updateUI(); } // Update UI if anything completed
+    function processCompletedDevelopment(currentWeek, currentStage) { const completed = []; gameState.inProgressDevelopment = gameState.inProgressDevelopment.filter(dev => { if (isTimeReached(currentWeek, currentStage, dev.targetCompletionWeek, dev.targetCompletionStage)) { completed.push(dev); return false; } return true; }); let statsChanged = false; completed.forEach(dev => { const upgrade = findUpgradeByIdRecursive(dev.upgradeId); if (!upgrade) { addPlayerMessage(`Completed development data mismatch for ID ${dev.upgradeId}.`, "error"); return; } const success = Math.random() < dev.successChance; if (success) { addPlayerMessage(`Development SUCCESS: ${upgrade.name}! Performance improved.`, "success"); applyUpgradeEffect(playerCar, upgrade); playerCar.appliedUpgrades.push(dev.upgradeId); statsChanged = true; } else { addPlayerMessage(`Development FAILED: ${upgrade.name}! Resources wasted.`, "error"); } }); if (statsChanged) { calculateTeamStats(gameState.playerTeamId); } if (completed.length > 0) updateUI(); } // Update UI if anything completed
     function investInfrastructure(facilityKey) { const facility = infrastructure[facilityKey]; if (!facility || facility.level >= facility.maxLevel) { addPlayerMessage(`Cannot invest further in ${facility?.name || 'unknown facility'}.`, "warning"); return; } const cost = facility.costPerLevel[facility.level]; if (gameState.finances.budget < cost) { addPlayerMessage(`Insufficient funds to upgrade ${facility.name}. Need ${formatCurrency(cost)}.`, "warning"); return; } gameState.finances.budget -= cost; gameState.finances.seasonExpenses += cost; logTransaction(`Infrastructure Upgrade: ${facility.name} Lvl ${facility.level + 1}`, -cost, gameState.finances.budget); facility.level++; addPlayerMessage(`Upgraded ${facility.name} to Level ${facility.level}!`, "success"); calculateTeamStats(gameState.playerTeamId); updateUI(); }
     function startStaffTraining(staffId, trainingId) { const staff = getStaffById(gameState.playerTeamId, staffId); const trainingOption = staffTrainingOptions[staff?.role]?.find(t => t.id === trainingId); if (!staff || !trainingOption || gameState.inProgressStaffTraining.some(t => t.staffId === staff.id)) { addPlayerMessage(`Cannot start training for ${staff?.name || 'unknown staff'}.`, "error"); return; } if (staff.level < trainingOption.levelReq) { addPlayerMessage(`${staff.name} does not meet level requirement for ${trainingOption.name}.`, "warning"); return; } const cost = trainingOption.cost; if (gameState.finances.budget < cost) { addPlayerMessage(`Insufficient funds for ${trainingOption.name}. Need ${formatCurrency(cost)}.`, "warning"); return; } gameState.finances.budget -= cost; gameState.finances.seasonExpenses += cost; logTransaction(`Start Staff Training: ${staff.name} - ${trainingOption.name}`, -cost, gameState.finances.budget); const completionTime = calculateCompletionTime(gameState.currentWeek, gameState.currentGameStage, trainingOption.durationWeeks, 0); const successChance = trainingOption.successChance; gameState.inProgressStaffTraining.push({ staffId: staffId, trainingId: trainingId, trainingName: trainingOption.name, targetCompletionWeek: completionTime.week, targetCompletionStage: completionTime.stage, successChance: successChance, effect: trainingOption.effect }); addPlayerMessage(`Started training ${staff.name} in ${trainingOption.name}. ETA: Wk ${completionTime.week}`, "success"); updateUI(); }
     function processCompletedStaffTraining(currentWeek, currentStage) { const completed = []; gameState.inProgressStaffTraining = gameState.inProgressStaffTraining.filter(train => { if (isTimeReached(currentWeek, currentStage, train.targetCompletionWeek, train.targetCompletionStage)) { completed.push(train); return false; } return true; }); let statsChanged = false; completed.forEach(train => { const staff = getStaffById(gameState.playerTeamId, train.staffId); if (!staff) { addPlayerMessage(`Completed training data mismatch for Staff ID ${train.staffId}.`, "error"); return; } const success = Math.random() < train.successChance; if (success) { const oldLevel = staff.level; staff.level = Math.min(10, staff.level + 1); addPlayerMessage(`Training SUCCESS: ${staff.name} completed ${train.trainingName}! Level ${oldLevel}->${staff.level}.`, "success"); statsChanged = true; } else { addPlayerMessage(`Training FAILED: ${staff.name}'s ${train.trainingName} training was unsuccessful.`, "error"); } }); if (statsChanged) calculateTeamStats(gameState.playerTeamId); if (completed.length > 0) updateUI(); } // Update UI if anything completed
